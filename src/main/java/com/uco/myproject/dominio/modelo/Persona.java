@@ -2,6 +2,7 @@ package com.uco.myproject.dominio.modelo;
 
 public class Persona {
 
+    //Atributos
     private final String nombre;
     private final String apellido;
 
