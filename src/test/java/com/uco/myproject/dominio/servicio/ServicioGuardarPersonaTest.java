@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-class ServicioGuardarPersonaTest {
+public class ServicioGuardarPersonaTest {
 
     @Test
     void siNombreYaExisteDeberiaRetornarError() {
@@ -23,8 +23,8 @@ class ServicioGuardarPersonaTest {
         //act - assert
         Assertions.assertEquals("Ya existe la persona con los datos ingresados",
                 Assertions.assertThrows(IllegalStateException.class, () ->
-            servicio.ejecutar(persona)
-        ).getMessage());
+                        servicio.ejecutar(persona)
+                ).getMessage());
 
     }
 

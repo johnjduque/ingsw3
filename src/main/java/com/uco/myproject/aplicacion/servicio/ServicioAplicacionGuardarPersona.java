@@ -17,7 +17,9 @@ public class ServicioAplicacionGuardarPersona {
 
     public DtoRespuesta<Long> ejecutar(DtoPersona dto) {
 
-        Persona persona = Persona.of(dto.getNombre(), dto.getApellido());
+        Persona persona = Persona.of(dto.getCodigo(),dto.getDocumentoIdentidad(),dto.getPrimerNombre(),dto.getSegundoNombre(),dto.getPrimerApellido(),dto.getSegundoApellido(),
+                dto.getFechaNacimiento(),dto.getIngresoMensual(),dto.getTipoDeDocumento(),dto.getGenero(),dto.getEstadoCivil(),dto.getCondicionEspecialMedica(),dto.getCondicionEspecialSocioeconomica(),
+                dto.getTipoDePostulante(),dto.getOcupacion(),dto.getOrientacionSexual(),dto.getDatosDeContacto());
 
         return new DtoRespuesta<>(this.servicioGuardarPersona.ejecutar(persona));
     }

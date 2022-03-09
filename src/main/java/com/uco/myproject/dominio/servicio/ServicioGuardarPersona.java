@@ -11,15 +11,15 @@ public class ServicioGuardarPersona {
 
     private final RepositorioPersona repositorioPersona;
 
-    public ServicioGuardarPersona(RepositorioPersona repositorioPersona) {
+    public ServicioGuardarPersona(RepositorioPersona repositorioPersona){
         this.repositorioPersona = repositorioPersona;
     }
 
-    public Long ejecutar(Persona persona) {
-
-        if(this.repositorioPersona.existe(persona)) {
-            throw new IllegalStateException(MENSAJE_YA_EXISTE);
+    public Long ejecutar(Persona persona){
+        if(this.repositorioPersona.existe(persona)){
+            throw new IllegalArgumentException(MENSAJE_YA_EXISTE);
         }
+
         return this.repositorioPersona.guardar(persona);
     }
 }

@@ -11,11 +11,9 @@ public class ServicioAplicacionListarPersonas {
 
     private final RepositorioPersona repositorioPersona;
 
-    public ServicioAplicacionListarPersonas(RepositorioPersona repositorioPersona) {
+    public ServicioAplicacionListarPersonas(RepositorioPersona repositorioPersona){
         this.repositorioPersona = repositorioPersona;
     }
 
-    public List<Persona> ejecutar() {
-        return this.repositorioPersona.listar();
-    }
+    public List<Persona> ejecutar(){return this.repositorioPersona.listar();}
 }
