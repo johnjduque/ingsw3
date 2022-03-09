@@ -26,7 +26,7 @@ public class PersonaTestDataBuilder {
     private OrientacionSexual orientacionSexual;
     private DatosDeContacto datosDeContacto;
 
-    public PersonaTestDataBuilder(String codigo, int documentoIdentidad, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, Date fechaNacimiento, int ingresoMensual, TipoDeDocumento tipoDeDocumento, Genero genero, EstadoCivil estadoCivil, CondicionEspecialMedica condicionEspecialMedica, CondicionEspecialSocioeconomica condicionEspecialSocioeconomica, TipoDePostulante tipoDePostulante, Ocupacion ocupacion, OrientacionSexual orientacionSexual, DatosDeContacto datosDeContacto) {
+    public PersonaTestDataBuilder() {
         this.codigo = "1";
         this.documentoIdentidad = 1036936749;
         this.primerNombre = "John";
@@ -44,10 +44,6 @@ public class PersonaTestDataBuilder {
         this.ocupacion = new Ocupacion("1","empleado");
         this.orientacionSexual = new OrientacionSexual("1","heterosexual");
         this.datosDeContacto = new DatosDeContacto("1","6046150151","3207123838","jduque@rionegro.gov.co");
-    }
-
-    public PersonaTestDataBuilder() {
-
     }
 
     public PersonaTestDataBuilder conCodigo(String codigo){

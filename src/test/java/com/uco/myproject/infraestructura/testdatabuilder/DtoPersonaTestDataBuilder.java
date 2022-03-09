@@ -26,7 +26,7 @@ public class DtoPersonaTestDataBuilder {
     private DtoOrientacionSexual orientacionSexual;
     private DtoDatosDeContacto datosDeContacto;
 
-    public DtoPersonaTestDataBuilder(String codigo, int documentoIdentidad, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, Date fechaNacimiento, int ingresoMensual, DtoTipoDeDocumento tipoDeDocumento, DtoGenero genero, DtoEstadoCivil estadoCivil, DtoCondicionEspecialMedica condicionEspecialMedica, DtoCondicionEspecialSocioeconomica condicionEspecialSocioeconomica, DtoTipoDePostulante tipoDePostulante, DtoOcupacion ocupacion, DtoOrientacionSexual orientacionSexual, DtoDatosDeContacto datosDeContacto) {
+    public DtoPersonaTestDataBuilder() {
         this.codigo = "1";
         this.documentoIdentidad = 1036936749;
         this.primerNombre = "John";
@@ -44,10 +44,6 @@ public class DtoPersonaTestDataBuilder {
         this.ocupacion = new DtoOcupacion("1","empleado");
         this.orientacionSexual = new DtoOrientacionSexual("1","heterosexual");
         this.datosDeContacto = new DtoDatosDeContacto("1","6046150151","3207123838","jduque@rionegro.gov.co");
-    }
-
-    public DtoPersonaTestDataBuilder() {
-
     }
 
     public DtoPersonaTestDataBuilder conCodigo(String codigo){
@@ -117,4 +113,5 @@ public class DtoPersonaTestDataBuilder {
 
     public DtoPersona build(){return new DtoPersona(codigo,documentoIdentidad,primerNombre,segundoNombre,primerApellido,segundoApellido,fechaNacimiento,ingresoMensual,tipoDeDocumento,
             genero,estadoCivil,condicionEspecialMedica,condicionEspecialSocioeconomica,tipoDePostulante,ocupacion,orientacionSexual,datosDeContacto);}
+
 }
