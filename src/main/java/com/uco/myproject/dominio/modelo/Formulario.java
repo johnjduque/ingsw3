@@ -1,12 +1,12 @@
 package com.uco.myproject.dominio.modelo;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Formulario {
 
     private final String radicado;
-    private final ArrayList<Persona> personas;
-    private final int ClasificacionSisben;
+    private final List<Persona> personas;
+    private final int clasificacionSisben;
     private final boolean poseeDerechosDePropiedad;
     private final boolean aceptoJuramento;
     private final boolean aceptoAvisoPrivacidad;
@@ -14,13 +14,13 @@ public class Formulario {
     private final AhorroPrevio ahorroPrevio;
 
 
-    public Formulario(String radicado, ArrayList<Persona> personas, int clasificacionSisben,
+    public Formulario(String radicado, List<Persona> personas, int clasificacionSisben,
                       boolean poseeDerechosDePropiedad, boolean aceptoJuramento,
                       boolean aceptoAvisoPrivacidad, RecursosComplementarios recursosComplementarios,
                       AhorroPrevio ahorroPrevio) {
         this.radicado = radicado;
         this.personas = personas;
-        ClasificacionSisben = clasificacionSisben;
+        this.clasificacionSisben = clasificacionSisben;
         this.poseeDerechosDePropiedad = poseeDerechosDePropiedad;
         this.aceptoJuramento = aceptoJuramento;
         this.aceptoAvisoPrivacidad = aceptoAvisoPrivacidad;
@@ -32,12 +32,12 @@ public class Formulario {
         return radicado;
     }
 
-    public ArrayList<Persona> getPersonas() {
+    public List<Persona> getPersonas() {
         return personas;
     }
 
     public int getClasificacionSisben() {
-        return ClasificacionSisben;
+        return clasificacionSisben;
     }
 
     public boolean isPoseeDerechosDePropiedad() {

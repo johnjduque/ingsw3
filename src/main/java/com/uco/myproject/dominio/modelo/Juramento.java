@@ -1,24 +1,16 @@
 package com.uco.myproject.dominio.modelo;
 
-public class Juramento {
+public record Juramento(String codigo, String descripcionJurmento) {
 
-    private final String codigo;
-    private final String descripcionJurmento;
-
-    public static Juramento of(String codigo, String descripcionJurmento){
+    public static Juramento of(String codigo, String descripcionJurmento) {
         validarObligatorioTexto(codigo, "El código no puede ser vacío");
         validarObligatorioTexto(descripcionJurmento, "La descripción no puede ser vacío");
 
-        return new Juramento(codigo,descripcionJurmento);
+        return new Juramento(codigo, descripcionJurmento);
     }
 
-    public Juramento(String codigo, String descripcionJurmento) {
-        this.codigo = codigo;
-        this.descripcionJurmento = descripcionJurmento;
-    }
-
-    private static void validarObligatorioTexto(String valor, String mensaje){
-        if(valor == null || valor.isBlank()){
+    private static void validarObligatorioTexto(String valor, String mensaje) {
+        if (valor == null || valor.isBlank()) {
             throw new IllegalArgumentException(mensaje);
         }
     }

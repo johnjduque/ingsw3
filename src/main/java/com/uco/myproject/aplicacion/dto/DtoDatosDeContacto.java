@@ -10,11 +10,11 @@ public class DtoDatosDeContacto {
     public DtoDatosDeContacto() {
     }
 
-    public DtoDatosDeContacto(String codigo, String numeroFijo, String numeroCelular, String correoElectrónico) {
+    public DtoDatosDeContacto(String codigo, String numeroFijo, String numeroCelular, String correoElectronico) {
         this.codigo = codigo;
         this.numeroFijo = numeroFijo;
         this.numeroCelular = numeroCelular;
-        this.correoElectronico = correoElectrónico;
+        this.correoElectronico = correoElectronico;
     }
 
     public String getCodigo() {

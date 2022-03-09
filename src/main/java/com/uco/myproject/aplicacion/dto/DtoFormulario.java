@@ -1,16 +1,12 @@
 package com.uco.myproject.aplicacion.dto;
 
-import com.uco.myproject.dominio.modelo.AhorroPrevio;
-import com.uco.myproject.dominio.modelo.Persona;
-import com.uco.myproject.dominio.modelo.RecursosComplementarios;
-
-import java.util.ArrayList;
+import java.util.List;
 
 public class DtoFormulario {
 
     private String radicado;
-    private ArrayList<DtoPersona> personas;
-    private int ClasificacionSisben;
+    private List<DtoPersona> personas;
+    private int clasificacionSisben;
     private boolean poseeDerechosDePropiedad;
     private boolean aceptoJuramento;
     private boolean aceptoAvisoPrivacidad;
@@ -20,13 +16,13 @@ public class DtoFormulario {
     public DtoFormulario() {
     }
 
-    public DtoFormulario(String radicado, ArrayList<DtoPersona> personas, int clasificacionSisben,
+    public DtoFormulario(String radicado, List<DtoPersona> personas, int clasificacionSisben,
                          boolean poseeDerechosDePropiedad, boolean aceptoJuramento,
                          boolean aceptoAvisoPrivacidad, DtoRecursosComplementarios recursosComplementarios,
                          DtoAhorroPrevio ahorroPrevio) {
         this.radicado = radicado;
         this.personas = personas;
-        ClasificacionSisben = clasificacionSisben;
+        this.clasificacionSisben = clasificacionSisben;
         this.poseeDerechosDePropiedad = poseeDerechosDePropiedad;
         this.aceptoJuramento = aceptoJuramento;
         this.aceptoAvisoPrivacidad = aceptoAvisoPrivacidad;
@@ -38,12 +34,12 @@ public class DtoFormulario {
         return radicado;
     }
 
-    public ArrayList<DtoPersona> getPersonas() {
+    public List<DtoPersona> getPersonas() {
         return personas;
     }
 
     public int getClasificacionSisben() {
-        return ClasificacionSisben;
+        return clasificacionSisben;
     }
 
     public boolean isPoseeDerechosDePropiedad() {

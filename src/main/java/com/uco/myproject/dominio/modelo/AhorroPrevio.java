@@ -1,13 +1,9 @@
 package com.uco.myproject.dominio.modelo;
 
-public class AhorroPrevio {
+public record AhorroPrevio(String codigo, int cuentaAhorroProgramado, int cesantias,
+                           int subsidioCajaCompesacion) {
 
-    private final String codigo;
-    private final int cuentaAhorroProgramado;
-    private final int cesantias;
-    private final int subsidioCajaCompesacion;
-
-    public static AhorroPrevio of(String codigo, int cuentaAhorroProgramado, int cesantias, int subsidioCajaCompesacion){
+    public static AhorroPrevio of(String codigo, int cuentaAhorroProgramado, int cesantias, int subsidioCajaCompesacion) {
         validarObligatorioTexto(codigo, "El código no puede ser vacío");
         validarObligatorioNumero(cuentaAhorroProgramado, "La cuenta de Ahorro programado no puede ser vacío");
         validarObligatorioNumero(cesantias, "Las cesantías no pueden ser vacías");
@@ -16,26 +12,21 @@ public class AhorroPrevio {
         return new AhorroPrevio(codigo, cuentaAhorroProgramado, cesantias, subsidioCajaCompesacion);
     }
 
-    public AhorroPrevio(String codigo, int cuentaAhorroProgramado, int cesantias, int subsidioCajaCompesacion) {
-        this.codigo = codigo;
-        this.cuentaAhorroProgramado = cuentaAhorroProgramado;
-        this.cesantias = cesantias;
-        this.subsidioCajaCompesacion = subsidioCajaCompesacion;
-    }
-
-    private static void validarObligatorioTexto(String valor, String mensaje){
-        if(valor == null || valor.isBlank()){
+    private static void validarObligatorioTexto(String valor, String mensaje) {
+        if (valor == null || valor.isBlank()) {
             throw new IllegalArgumentException(mensaje);
         }
     }
 
-    private static void validarObligatorioNumero(int valor, String mensaje){
-        if(esNulo(valor)){
+    private static void validarObligatorioNumero(int valor, String mensaje) {
+        if (esNulo(valor)) {
             throw new NumberFormatException(mensaje);
         }
     }
 
-    public static <T> boolean esNulo(T objeto){return objeto == null;}
+    public static <T> boolean esNulo(T objeto) {
+        return objeto == null;
+    }
 
     public String getCodigo() {
         return codigo;

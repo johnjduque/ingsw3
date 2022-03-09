@@ -1,13 +1,9 @@
 package com.uco.myproject.dominio.modelo;
 
-public class DatosDeContacto {
+public record DatosDeContacto(String codigo, String numeroFijo, String numeroCelular,
+                              String correoElectronico) {
 
-    private final String codigo;
-    private final String numeroFijo;
-    private final String numeroCelular;
-    private final String correoElectronico;
-
-    public static DatosDeContacto of(String codigo, String numeroFijo, String numeroCelular, String correoElectronico){
+    public static DatosDeContacto of(String codigo, String numeroFijo, String numeroCelular, String correoElectronico) {
         validarObligatorio(codigo, "El código no puede ser vacío");
         validarObligatorio(numeroFijo, "El número fijo no puede ser vacío, sino tiene fijo coloque celular");
         validarObligatorio(numeroCelular, "El número celular no puede ser vacío");
@@ -16,15 +12,8 @@ public class DatosDeContacto {
         return new DatosDeContacto(codigo, numeroFijo, numeroCelular, correoElectronico);
     }
 
-    public DatosDeContacto(String codigo, String numeroFijo, String numeroCelular, String correoElectrónico) {
-        this.codigo = codigo;
-        this.numeroFijo = numeroFijo;
-        this.numeroCelular = numeroCelular;
-        this.correoElectronico = correoElectrónico;
-    }
-
-    private static void validarObligatorio(String valor, String mensaje){
-        if(valor == null || valor.isBlank()){
+    private static void validarObligatorio(String valor, String mensaje) {
+        if (valor == null || valor.isBlank()) {
             throw new IllegalArgumentException(mensaje);
         }
     }
