@@ -8,6 +8,6 @@ public interface RepositorioRecursosComplementarios {
 
     List<RecursosComplementarios> listar();
     RecursosComplementarios cosultarPorId(String codigo);
-    Long guardar(RecursosComplementarios recursosComplementarios);
+    void guardar(RecursosComplementarios recursosComplementarios);
     boolean existe(RecursosComplementarios recursosComplementarios);
 }

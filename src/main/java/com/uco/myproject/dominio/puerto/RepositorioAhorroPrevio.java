@@ -7,6 +7,6 @@ import java.util.List;
 public interface RepositorioAhorroPrevio {
 
     AhorroPrevio consultarPorId(String codigo);
-    Long guardar(AhorroPrevio ahorroPrevio);
+    void guardar(AhorroPrevio ahorroPrevio);
     boolean existe(AhorroPrevio ahorroPrevio);
 }

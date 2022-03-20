@@ -7,6 +7,6 @@ import java.util.List;
 public interface RepositorioCondicionEspecialSocioeconomica {
 
     List<CondicionEspecialSocioeconomica> listar();
-    CondicionEspecialSocioeconomica consultarPorId();
+    CondicionEspecialSocioeconomica consultarPorId(String codigo);
     boolean existe(CondicionEspecialSocioeconomica condicionEspecialSocioeconomica);
 }

@@ -1,9 +1,8 @@
 package com.uco.myproject.aplicacion.servicio;
 
 import com.uco.myproject.aplicacion.dto.DtoPersona;
-import com.uco.myproject.aplicacion.dto.DtoRespuesta;
 import com.uco.myproject.dominio.modelo.*;
-import com.uco.myproject.dominio.servicio.ServicioGuardarPersona;
+import com.uco.myproject.dominio.servicio.persona.ServicioGuardarPersona;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,7 +14,7 @@ public class ServicioAplicacionGuardarPersona {
         this.servicioGuardarPersona = servicioGuardarPersona;
     }
 
-    public DtoRespuesta<Long> ejecutar(DtoPersona dto) {
+    public void guardar(DtoPersona dto) {
 
         TipoDeDocumento tipoDeDocumento = new TipoDeDocumento(dto.getTipoDeDocumento().getCodigo(), dto.getTipoDeDocumento().getNombre());
         Genero genero = new Genero(dto.getGenero().getCodigo(), dto.getGenero().getNombre());
@@ -32,6 +31,6 @@ public class ServicioAplicacionGuardarPersona {
                 dto.getFechaNacimiento(),dto.getIngresoMensual(),tipoDeDocumento,genero,estadoCivil,condicionEspecialMedica,condicionEspecialSocioeconomica,
                 tipoDePostulante,ocupacion,orientacionSexual,datosDeContacto);
 
-        return new DtoRespuesta<>(this.servicioGuardarPersona.ejecutar(persona));
+        this.servicioGuardarPersona.guardar(persona);
     }
 }
