@@ -5,7 +5,7 @@ public record DatosDeContacto(String codigo, String numeroFijo, String numeroCel
 
     public static DatosDeContacto of(String codigo, String numeroFijo, String numeroCelular, String correoElectronico) {
         validarObligatorio(codigo, "El código no puede ser vacío");
-        validarObligatorio(numeroFijo, "El número fijo no puede ser vacío, sino tiene fijo coloque celular");
+        validarObligatorio(numeroFijo, "El número fijo no puede ser vacío, si no tiene fijo coloque celular");
         validarObligatorio(numeroCelular, "El número celular no puede ser vacío");
         validarObligatorio(correoElectronico, "El correo electrónico no puede ser vacío");
 
