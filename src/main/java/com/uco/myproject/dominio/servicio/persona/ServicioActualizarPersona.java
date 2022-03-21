@@ -14,7 +14,7 @@ public class ServicioActualizarPersona {
         this.repositorioPersona = repositorioPersona;
     }
 
-    public boolean actualizar(String documentoIdentidad, Persona persona){
+    public boolean actualizar(int documentoIdentidad, Persona persona){
         if(this.repositorioPersona.consultarPorId(documentoIdentidad) == null){
             throw new IllegalArgumentException(MENSAJE_NO_EXISTE);
         }

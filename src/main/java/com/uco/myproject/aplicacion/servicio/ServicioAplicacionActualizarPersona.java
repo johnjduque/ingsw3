@@ -15,7 +15,7 @@ public class ServicioAplicacionActualizarPersona {
         this.servicioActualizarPersona = servicioActualizarPersona;
     }
 
-    public DtoRespuesta<Boolean> actualizar(String documentoIdentidad, DtoPersona dtoPersona){
+    public DtoRespuesta<Boolean> actualizar(int documentoIdentidad, DtoPersona dtoPersona){
         Persona persona = Persona.of(dtoPersona.getCodigo(),dtoPersona.getDocumentoIdentidad(),dtoPersona.getPrimerNombre(),dtoPersona.getSegundoNombre(),dtoPersona.getPrimerApellido(),
                 dtoPersona.getSegundoApellido(),dtoPersona.getFechaNacimiento(),dtoPersona.getIngresoMensual(), TipoDeDocumento.of(dtoPersona.getTipoDeDocumento().getCodigo(),dtoPersona.getTipoDeDocumento().getNombre()),
                 Genero.of(dtoPersona.getGenero().getCodigo(),dtoPersona.getGenero().getNombre()), EstadoCivil.of(dtoPersona.getEstadoCivil().getCodigo(),

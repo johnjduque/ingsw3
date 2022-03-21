@@ -13,7 +13,7 @@ public class ServicioBorrarPersona {
         this.repositorioPersona = repositorioPersona;
     }
 
-    public boolean borrar(String documentoIdentidad){
+    public boolean borrar(int documentoIdentidad){
         if(this.repositorioPersona.consultarPorId(documentoIdentidad) == null){
             throw new IllegalArgumentException(MENSAJE_NO_ESXISTE);
         }

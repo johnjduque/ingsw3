@@ -38,12 +38,12 @@ public class ControladorPersona {
     }
 
     @DeleteMapping(value = "/{documentoIdentidad}")
-    public DtoRespuesta<Boolean> borrar(@PathVariable String documentoIdentidad){
+    public DtoRespuesta<Boolean> borrar(@PathVariable int documentoIdentidad){
         return this.servicioAplicacionBorrarPersona.borrar(documentoIdentidad);
     }
 
     @PutMapping(value = "/{documentoIdentidad}")
-    public DtoRespuesta<Boolean> actualizar(@PathVariable String documentoIdentidad, @RequestBody DtoPersona dtoPersona){
+    public DtoRespuesta<Boolean> actualizar(@PathVariable int documentoIdentidad, @RequestBody DtoPersona dtoPersona){
         return this.servicioAplicacionActualizarPersona.actualizar(documentoIdentidad, dtoPersona);
     }
 }

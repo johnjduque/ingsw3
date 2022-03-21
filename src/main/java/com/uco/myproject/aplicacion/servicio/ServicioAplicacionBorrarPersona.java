@@ -13,7 +13,7 @@ public class ServicioAplicacionBorrarPersona {
         this.servicioBorrarPersona = servicioBorrarPersona;
     }
 
-    public DtoRespuesta<Boolean> borrar(String documentoIdentidad){
+    public DtoRespuesta<Boolean> borrar(int documentoIdentidad){
         return new DtoRespuesta<>(this.servicioBorrarPersona.borrar(documentoIdentidad));
     }
 }

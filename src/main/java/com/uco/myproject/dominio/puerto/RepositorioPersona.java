@@ -10,7 +10,7 @@ public interface RepositorioPersona {
     List<DtoPersonaResumen> listar();
     DtoPersonaResumen consultarPorId(int documentoIdentidad);
     Long guardar(Persona persona);
-    boolean actualizar(String codigo, Persona persona);
-    boolean borrar(String codigo);
+    boolean actualizar(int documentoIdetidad, Persona persona);
+    boolean borrar(int documentoIdentidad);
     boolean existe(DtoPersonaResumen persona);
 }
