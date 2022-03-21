@@ -1,6 +1,7 @@
 package com.uco.myproject.aplicacion.servicio;
 
 import com.uco.myproject.aplicacion.dto.DtoPersona;
+import com.uco.myproject.aplicacion.dto.respuesta.DtoRespuesta;
 import com.uco.myproject.dominio.modelo.*;
 import com.uco.myproject.dominio.servicio.persona.ServicioActualizarPersona;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,7 @@ public class ServicioAplicacionActualizarPersona {
         this.servicioActualizarPersona = servicioActualizarPersona;
     }
 
-    public void actualizar(String codigo, DtoPersona dtoPersona){
+    public DtoRespuesta<Boolean> actualizar(String documentoIdentidad, DtoPersona dtoPersona){
         Persona persona = Persona.of(dtoPersona.getCodigo(),dtoPersona.getDocumentoIdentidad(),dtoPersona.getPrimerNombre(),dtoPersona.getSegundoNombre(),dtoPersona.getPrimerApellido(),
                 dtoPersona.getSegundoApellido(),dtoPersona.getFechaNacimiento(),dtoPersona.getIngresoMensual(), TipoDeDocumento.of(dtoPersona.getTipoDeDocumento().getCodigo(),dtoPersona.getTipoDeDocumento().getNombre()),
                 Genero.of(dtoPersona.getGenero().getCodigo(),dtoPersona.getGenero().getNombre()), EstadoCivil.of(dtoPersona.getEstadoCivil().getCodigo(),
@@ -26,6 +27,6 @@ public class ServicioAplicacionActualizarPersona {
                 DatosDeContacto.of(dtoPersona.getDatosDeContacto().getCodigo(),dtoPersona.getDatosDeContacto().getNumeroFijo(),dtoPersona.getDatosDeContacto().getNumeroCelular(),
                         dtoPersona.getDatosDeContacto().getCorreoElectronico()));
 
-        this.servicioActualizarPersona.actualizar(codigo,persona);
+        return new DtoRespuesta<>(this.servicioActualizarPersona.actualizar(documentoIdentidad,persona));
     }
 }

@@ -34,17 +34,18 @@ public class ServicioGuardarPersona {
         this.repositorioDatosDeContacto = repositorioDatosDeContacto;
     }
 
-    public void guardar(Persona persona){
+    public Long guardar(Persona persona){
 
+        if(verificarPersonaExiste(persona)){}
+        return this.repositorioPersona.guardar(persona);
     }
 
-    private void verificarPersonaExiste(Persona persona){
-        var personaResumen = this.repositorioPersona.consultarPorId(persona.getCodigo());
+    private boolean verificarPersonaExiste(Persona persona){
+        var personaResumen = this.repositorioPersona.consultarPorId(persona.getDocumentoIdentidad());
 
         if(personaResumen == null){
             throw new IllegalArgumentException("La persona con el número de identificación ingresado ya se encuentra registrado");
         }
+        return true;
     }
-
-
 }

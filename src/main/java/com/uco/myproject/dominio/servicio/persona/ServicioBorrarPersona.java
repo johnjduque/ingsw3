@@ -13,11 +13,11 @@ public class ServicioBorrarPersona {
         this.repositorioPersona = repositorioPersona;
     }
 
-    public void borrar(String codigo){
-        if(this.repositorioPersona.consultarPorId(codigo) == null){
+    public boolean borrar(String documentoIdentidad){
+        if(this.repositorioPersona.consultarPorId(documentoIdentidad) == null){
             throw new IllegalArgumentException(MENSAJE_NO_ESXISTE);
         }
 
-        this.repositorioPersona.borrar(codigo);
+        return this.repositorioPersona.borrar(documentoIdentidad);
     }
 }

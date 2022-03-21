@@ -14,11 +14,11 @@ public class ServicioActualizarPersona {
         this.repositorioPersona = repositorioPersona;
     }
 
-    public void actualizar(String codigo, Persona persona){
-        if(this.repositorioPersona.consultarPorId(codigo) == null){
+    public boolean actualizar(String documentoIdentidad, Persona persona){
+        if(this.repositorioPersona.consultarPorId(documentoIdentidad) == null){
             throw new IllegalArgumentException(MENSAJE_NO_EXISTE);
         }
 
-        this.repositorioPersona.actualizar(codigo, persona);
+        return this.repositorioPersona.actualizar(documentoIdentidad, persona);
     }
 }

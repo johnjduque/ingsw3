@@ -1,5 +1,6 @@
 package com.uco.myproject.aplicacion.servicio;
 
+import com.uco.myproject.aplicacion.dto.respuesta.DtoRespuesta;
 import com.uco.myproject.dominio.servicio.persona.ServicioBorrarPersona;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +13,7 @@ public class ServicioAplicacionBorrarPersona {
         this.servicioBorrarPersona = servicioBorrarPersona;
     }
 
-    public void borrar(String codigo){
-        this.servicioBorrarPersona.borrar(codigo);
+    public DtoRespuesta<Boolean> borrar(String documentoIdentidad){
+        return new DtoRespuesta<>(this.servicioBorrarPersona.borrar(documentoIdentidad));
     }
 }

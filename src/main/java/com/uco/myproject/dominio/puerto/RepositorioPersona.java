@@ -8,9 +8,9 @@ import java.util.List;
 public interface RepositorioPersona {
 
     List<DtoPersonaResumen> listar();
-    DtoPersonaResumen consultarPorId(String id);
-    void guardar(Persona persona);
-    void actualizar(String codigo, Persona persona);
-    void borrar(String codigo);
+    DtoPersonaResumen consultarPorId(int documentoIdentidad);
+    Long guardar(Persona persona);
+    boolean actualizar(String codigo, Persona persona);
+    boolean borrar(String codigo);
     boolean existe(DtoPersonaResumen persona);
 }
