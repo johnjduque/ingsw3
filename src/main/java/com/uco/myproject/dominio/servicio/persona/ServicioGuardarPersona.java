@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ServicioGuardarPersona {
 
+    private static final String MENSAJE_YA_EXISTE = "La persona con el número de identificación ingresado ya se encuentra registrado";
     private final RepositorioPersona repositorioPersona;
     private final RepositorioTipoDeDocumento repositorioTipoDeDocumento;
     private final RepositorioGenero repositorioGenero;
@@ -36,16 +37,10 @@ public class ServicioGuardarPersona {
 
     public Long guardar(Persona persona){
 
-        if(verificarPersonaExiste(persona)){}
+        if(this.repositorioPersona.existe(persona)){
+            throw new IllegalArgumentException(MENSAJE_YA_EXISTE);
+        }
         return this.repositorioPersona.guardar(persona);
     }
 
-    private boolean verificarPersonaExiste(Persona persona){
-        var personaResumen = this.repositorioPersona.consultarPorId(persona.getDocumentoIdentidad());
-
-        if(personaResumen == null){
-            throw new IllegalArgumentException("La persona con el número de identificación ingresado ya se encuentra registrado");
-        }
-        return true;
-    }
 }

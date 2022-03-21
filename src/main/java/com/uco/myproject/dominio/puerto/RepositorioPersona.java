@@ -12,5 +12,5 @@ public interface RepositorioPersona {
     Long guardar(Persona persona);
     boolean actualizar(int documentoIdetidad, Persona persona);
     boolean borrar(int documentoIdentidad);
-    boolean existe(DtoPersonaResumen persona);
+    boolean existe(Persona persona);
 }
