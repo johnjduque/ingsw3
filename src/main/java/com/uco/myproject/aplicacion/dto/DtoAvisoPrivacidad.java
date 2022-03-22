@@ -5,9 +5,6 @@ public class DtoAvisoPrivacidad {
     private String codigo;
     private String descripcionAvisoPrivacidad;
 
-    public DtoAvisoPrivacidad() {
-    }
-
     public DtoAvisoPrivacidad(String codigo, String descripcionAvisoPrivacidad) {
         this.codigo = codigo;
         this.descripcionAvisoPrivacidad = descripcionAvisoPrivacidad;

@@ -5,9 +5,6 @@ public class EntidadJuramento {
     private String codigo;
     private String descripcionJuramento;
 
-    public EntidadJuramento() {
-    }
-
     public EntidadJuramento(String codigo, String descripcionJuramento) {
         this.codigo = codigo;
         this.descripcionJuramento = descripcionJuramento;

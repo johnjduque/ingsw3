@@ -5,9 +5,6 @@ public class DtoCondicionEspecialSocioeconomicaResumen {
     private String codigo;
     private String nombre;
 
-    public DtoCondicionEspecialSocioeconomicaResumen() {
-    }
-
     public DtoCondicionEspecialSocioeconomicaResumen(String codigo, String nombre) {
         this.codigo = codigo;
         this.nombre = nombre;

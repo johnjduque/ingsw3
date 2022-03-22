@@ -5,9 +5,6 @@ public class EntidadCondicionEspecialMedica {
     private String codigo;
     private String nombre;
 
-    public EntidadCondicionEspecialMedica() {
-    }
-
     public EntidadCondicionEspecialMedica(String codigo, String nombre) {
         this.codigo = codigo;
         this.nombre = nombre;

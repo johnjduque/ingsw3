@@ -5,9 +5,6 @@ public class EntidadTipoDeDocumento {
     private String codigo;
     private String nombre;
 
-    public EntidadTipoDeDocumento() {
-    }
-
     public EntidadTipoDeDocumento(String codigo, String nombre) {
         this.codigo = codigo;
         this.nombre = nombre;

@@ -5,9 +5,6 @@ public class DtoEstadoCivilResumen {
     private String codigo;
     private String nombre;
 
-    public DtoEstadoCivilResumen() {
-    }
-
     public DtoEstadoCivilResumen(String codigo, String nombre) {
         this.codigo = codigo;
         this.nombre = nombre;

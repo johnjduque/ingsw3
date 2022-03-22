@@ -7,9 +7,6 @@ public class DtoAhorroPrevio {
     private int cesantias;
     private int subsidioCajaCompesacion;
 
-    public DtoAhorroPrevio() {
-    }
-
     public DtoAhorroPrevio(String codigo, int cuentaAhorroProgramado, int cesantias, int subsidioCajaCompesacion) {
         this.codigo = codigo;
         this.cuentaAhorroProgramado = cuentaAhorroProgramado;

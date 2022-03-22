@@ -5,9 +5,6 @@ public class DtoJuramento {
     private String codigo;
     private String descripcionJurmento;
 
-    public DtoJuramento() {
-    }
-
     public DtoJuramento(String codigo, String descripcionJurmento) {
         this.codigo = codigo;
         this.descripcionJurmento = descripcionJurmento;

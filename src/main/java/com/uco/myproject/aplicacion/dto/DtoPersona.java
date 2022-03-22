@@ -22,9 +22,6 @@ public class DtoPersona {
     private DtoOrientacionSexual orientacionSexual;
     private DtoDatosDeContacto datosDeContacto;
 
-    public DtoPersona() {
-    }
-
     public DtoPersona(String codigo, int documentoIdentidad, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, Date fechaNacimiento, int ingresoMensual, DtoTipoDeDocumento tipoDeDocumento, DtoGenero genero, DtoEstadoCivil estadoCivil, DtoCondicionEspecialMedica condicionEspecialMedica, DtoCondicionEspecialSocioeconomica condicionEspecialSocioeconomica, DtoTipoDePostulante tipoDePostulante, DtoOcupacion ocupacion, DtoOrientacionSexual orientacionSexual, DtoDatosDeContacto datosDeContacto) {
         this.codigo = codigo;
         this.documentoIdentidad = documentoIdentidad;

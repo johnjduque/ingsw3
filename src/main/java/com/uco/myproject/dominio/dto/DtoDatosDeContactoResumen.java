@@ -7,9 +7,6 @@ public class DtoDatosDeContactoResumen {
     private String numeroCelular;
     private String correoElectronico;
 
-    public DtoDatosDeContactoResumen() {
-    }
-
     public DtoDatosDeContactoResumen(String codigo, String numeroFijo, String numeroCelular, String correoElectronico) {
         this.codigo = codigo;
         this.numeroFijo = numeroFijo;

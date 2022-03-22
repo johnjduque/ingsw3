@@ -24,9 +24,6 @@ public class EntidadFormulario {
     @JoinColumn(name = "AhorroPrevio")
     private EntidadAhorroPrevio ahorroPrevio;
 
-    public EntidadFormulario() {
-    }
-
     public EntidadFormulario(String codigo, List<EntidadPersona> personas, int clasificacionSisben, boolean poseeDerechosDePropiedad, boolean aceptoJurmento, boolean aceptoAvisoPrivacidad, EntidadRecursosComplementarios recursosComplementarios, EntidadAhorroPrevio ahorroPrevio) {
         this.codigo = codigo;
         this.personas = personas;

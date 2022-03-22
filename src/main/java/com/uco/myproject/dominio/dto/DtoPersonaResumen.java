@@ -22,9 +22,6 @@ public class DtoPersonaResumen {
     private DtoOrientacionSexualResumen orientacionSexual;
     private DtoDatosDeContactoResumen datosDeContacto;
 
-    public DtoPersonaResumen() {
-    }
-
     public DtoPersonaResumen(String codigo, int documentoIdentidad, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, Date fechaNacimiento, int ingresoMensual, DtoTipoDeDocumentoResumen tipoDeDocumento, DtoGeneroResumen genero, DtoEstadoCivilResumen estadoCivil, DtoCondicionEspecialMedicaResumen condicionEspecialMedica, DtoCondicionEspecialSocioeconomicaResumen condicionEspecialSocioeconomica, DtoTipoDePostulanteResumen tipoDePostulante, DtoOcupacionResumen ocupacion, DtoOrientacionSexualResumen orientacionSexual, DtoDatosDeContactoResumen datosDeContacto) {
         this.codigo = codigo;
         this.documentoIdentidad = documentoIdentidad;

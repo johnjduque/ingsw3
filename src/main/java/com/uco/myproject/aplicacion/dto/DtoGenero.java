@@ -5,9 +5,6 @@ public class DtoGenero {
     private String codigo;
     private String nombre;
 
-    public DtoGenero() {
-    }
-
     public DtoGenero(String codigo, String nombre) {
         this.codigo = codigo;
         this.nombre = nombre;

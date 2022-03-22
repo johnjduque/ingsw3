@@ -6,9 +6,6 @@ public class EntidadRecursosComplementarios {
     private String nombre;
     private int ahorroPrevioCualquierModalidad;
 
-    public EntidadRecursosComplementarios() {
-    }
-
     public EntidadRecursosComplementarios(String codigo, String nombre, int ahorroPrevioCualquierModalidad) {
         this.codigo = codigo;
         this.nombre = nombre;

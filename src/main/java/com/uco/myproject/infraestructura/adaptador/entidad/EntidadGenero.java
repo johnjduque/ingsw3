@@ -5,9 +5,6 @@ public class EntidadGenero {
     private String codigo;
     private String nombre;
 
-    public EntidadGenero() {
-    }
-
     public EntidadGenero(String codigo, String nombre) {
         this.codigo = codigo;
         this.nombre = nombre;

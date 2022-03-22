@@ -1,10 +1,7 @@
 package com.uco.myproject.infraestructura.adaptador.entidad;
 
-import com.uco.myproject.dominio.modelo.AvisoPrivacidad;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class EntidadAvisoPrivacidadTest {
 

@@ -5,15 +5,10 @@ import com.uco.myproject.dominio.servicio.persona.ServicioBorrarPersona;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ServicioAplicacionBorrarPersona {
+public record ServicioAplicacionBorrarPersona(
+        ServicioBorrarPersona servicioBorrarPersona) {
 
-    private final ServicioBorrarPersona servicioBorrarPersona;
-
-    public ServicioAplicacionBorrarPersona(ServicioBorrarPersona servicioBorrarPersona) {
-        this.servicioBorrarPersona = servicioBorrarPersona;
-    }
-
-    public DtoRespuesta<Boolean> borrar(int documentoIdentidad){
+    public DtoRespuesta<Boolean> borrar(int documentoIdentidad) {
         return new DtoRespuesta<>(this.servicioBorrarPersona.borrar(documentoIdentidad));
     }
 }

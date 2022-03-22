@@ -1,6 +1,5 @@
 package com.uco.myproject.infraestructura.adaptador.entidad;
 
-import com.uco.myproject.dominio.modelo.DatosDeContacto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

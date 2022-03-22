@@ -5,9 +5,6 @@ public class EntidadOrientacionSexual {
     private String codigo;
     private String nombre;
 
-    public EntidadOrientacionSexual() {
-    }
-
     public EntidadOrientacionSexual(String codigo, String nombre) {
         this.codigo = codigo;
         this.nombre = nombre;

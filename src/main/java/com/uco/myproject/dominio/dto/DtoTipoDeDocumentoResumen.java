@@ -5,10 +5,6 @@ public class DtoTipoDeDocumentoResumen {
     private String codigo;
     private String nombre;
 
-    public DtoTipoDeDocumentoResumen(){
-
-    }
-
     public DtoTipoDeDocumentoResumen(String codigo, String nombre) {
         this.codigo = codigo;
         this.nombre = nombre;

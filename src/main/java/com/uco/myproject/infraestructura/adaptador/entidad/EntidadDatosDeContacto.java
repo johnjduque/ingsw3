@@ -7,9 +7,6 @@ public class EntidadDatosDeContacto {
     private String numeroCelular;
     private String correoElectronico;
 
-    public EntidadDatosDeContacto() {
-    }
-
     public EntidadDatosDeContacto(String codigo, String numeroFijo, String numeroCelular, String correoElectronico) {
         this.codigo = codigo;
         this.numeroFijo = numeroFijo;

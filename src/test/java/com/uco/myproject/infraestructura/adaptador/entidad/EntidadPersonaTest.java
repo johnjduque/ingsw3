@@ -1,12 +1,9 @@
 package com.uco.myproject.infraestructura.adaptador.entidad;
 
-import com.uco.myproject.dominio.modelo.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class EntidadPersonaTest {
 

@@ -45,9 +45,6 @@ public class EntidadPersona {
     @JoinColumn(name = "DatosDeContacto")
     private EntidadDatosDeContacto datosDeContacto;
 
-    public EntidadPersona() {
-    }
-
     public EntidadPersona(String codigo, int documentoIdentidad, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, Date fechaNacimiento, int ingresoMensual, EntidadTipoDeDocumento tipoDeDocumento, EntidadGenero entidadGenero, EntidadEstadoCivil estadoCivil, EntidadCondicionEspecialMedica condicionEspecialMedica, EntidadCondicionEspecialSocioeconomica condicionEspecialSocioeconomica, EntidadTipoDePostulante entidadTipoDePostulante, EntidadOcupacion ocupacion, EntidadOrientacionSexual orientacionSexual, EntidadDatosDeContacto datosDeContacto) {
         this.codigo = codigo;
         this.documentoIdentidad = documentoIdentidad;

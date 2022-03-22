@@ -6,9 +6,6 @@ public class DtoRecursosComplementarios {
     private String nombre;
     private int ahorroPrevioCualquierModalidad;
 
-    public DtoRecursosComplementarios() {
-    }
-
     public DtoRecursosComplementarios(String codigo, String nombre, int ahorroPrevioCualquierModalidad) {
         this.codigo = codigo;
         this.nombre = nombre;

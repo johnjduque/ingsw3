@@ -13,9 +13,6 @@ public class DtoFormulario {
     private DtoRecursosComplementarios recursosComplementarios;
     private DtoAhorroPrevio ahorroPrevio;
 
-    public DtoFormulario() {
-    }
-
     public DtoFormulario(String radicado, List<DtoPersona> personas, int clasificacionSisben,
                          boolean poseeDerechosDePropiedad, boolean aceptoJuramento,
                          boolean aceptoAvisoPrivacidad, DtoRecursosComplementarios recursosComplementarios,

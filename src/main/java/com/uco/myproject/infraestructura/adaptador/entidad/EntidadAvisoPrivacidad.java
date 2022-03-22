@@ -3,7 +3,6 @@ package com.uco.myproject.infraestructura.adaptador.entidad;
 public class EntidadAvisoPrivacidad {
 
     private String codigo;
-
     private String descripcionAvisoPrivacidad;
 
     public EntidadAvisoPrivacidad(String codigo, String descripcionAvisoPrivacidad) {

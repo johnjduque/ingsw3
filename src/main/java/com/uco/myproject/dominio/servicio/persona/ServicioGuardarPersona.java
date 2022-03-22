@@ -1,9 +1,7 @@
 package com.uco.myproject.dominio.servicio.persona;
 
-import com.uco.myproject.dominio.dto.DtoPersonaResumen;
 import com.uco.myproject.dominio.modelo.Persona;
 import com.uco.myproject.dominio.puerto.*;
-import jdk.jfr.Percentage;
 import org.springframework.stereotype.Service;
 
 @Service

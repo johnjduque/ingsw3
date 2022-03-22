@@ -5,9 +5,6 @@ public class EntidadCondicionEspecialSocioeconomica {
     private String codigo;
     private String nombre;
 
-    public EntidadCondicionEspecialSocioeconomica() {
-    }
-
     public EntidadCondicionEspecialSocioeconomica(String codigo, String nombre) {
         this.codigo = codigo;
         this.nombre = nombre;

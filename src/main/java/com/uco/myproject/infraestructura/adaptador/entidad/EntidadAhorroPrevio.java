@@ -7,9 +7,6 @@ public class EntidadAhorroPrevio {
     private int cesantias;
     private int subsidioCajaCompesacion;
 
-    public EntidadAhorroPrevio() {
-    }
-
     public EntidadAhorroPrevio(String codigo, int cuentaAhorroProgramado, int cesantias, int subsidioCajaCompesacion) {
         this.codigo = codigo;
         this.cuentaAhorroProgramado = cuentaAhorroProgramado;

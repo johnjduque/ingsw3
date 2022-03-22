@@ -5,9 +5,6 @@ public class DtoOrientacionSexualResumen {
     private String codigo;
     private String nombre;
 
-    public DtoOrientacionSexualResumen() {
-    }
-
     public DtoOrientacionSexualResumen(String codigo, String nombre) {
         this.codigo = codigo;
         this.nombre = nombre;
