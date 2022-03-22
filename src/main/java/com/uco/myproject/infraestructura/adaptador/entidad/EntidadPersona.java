@@ -1,6 +1,7 @@
 package com.uco.myproject.infraestructura.adaptador.entidad;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "Persona")
@@ -14,7 +15,7 @@ public class EntidadPersona {
     private String segundoNombre;
     private String primerApellido;
     private String segundoApellido;
-    private String fechaNacimiento;
+    private Date fechaNacimiento;
     private int ingresoMensual;
     @OneToOne
     @JoinColumn(name = "TipoDeDocumento")
@@ -47,7 +48,7 @@ public class EntidadPersona {
     public EntidadPersona() {
     }
 
-    public EntidadPersona(String codigo, int documentoIdentidad, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String fechaNacimiento, int ingresoMensual, EntidadTipoDeDocumento tipoDeDocumento, EntidadGenero entidadGenero, EntidadEstadoCivil estadoCivil, EntidadCondicionEspecialMedica condicionEspecialMedica, EntidadCondicionEspecialSocioeconomica condicionEspecialSocioeconomica, EntidadTipoDePostulante entidadTipoDePostulante, EntidadOcupacion ocupacion, EntidadOrientacionSexual orientacionSexual, EntidadDatosDeContacto datosDeContacto) {
+    public EntidadPersona(String codigo, int documentoIdentidad, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, Date fechaNacimiento, int ingresoMensual, EntidadTipoDeDocumento tipoDeDocumento, EntidadGenero entidadGenero, EntidadEstadoCivil estadoCivil, EntidadCondicionEspecialMedica condicionEspecialMedica, EntidadCondicionEspecialSocioeconomica condicionEspecialSocioeconomica, EntidadTipoDePostulante entidadTipoDePostulante, EntidadOcupacion ocupacion, EntidadOrientacionSexual orientacionSexual, EntidadDatosDeContacto datosDeContacto) {
         this.codigo = codigo;
         this.documentoIdentidad = documentoIdentidad;
         this.primerNombre = primerNombre;
@@ -115,11 +116,11 @@ public class EntidadPersona {
         this.segundoApellido = segundoApellido;
     }
 
-    public String getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 

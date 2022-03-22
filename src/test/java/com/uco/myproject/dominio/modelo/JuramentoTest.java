@@ -16,7 +16,7 @@ class JuramentoTest {
 
         //assert
         Assertions.assertEquals("1",juramento.getCodigo());
-        Assertions.assertEquals("juro que toda la información ingresada en el formulario es veridica...",juramento.getDescripcionJurmento());
+        Assertions.assertEquals("juro que toda la información ingresada en el formulario es veridica...",juramento.getDescripcionJuramento());
     }
 
     @Test

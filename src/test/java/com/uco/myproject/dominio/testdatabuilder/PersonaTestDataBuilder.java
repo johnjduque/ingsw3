@@ -1,8 +1,6 @@
 package com.uco.myproject.dominio.testdatabuilder;
 
-import com.uco.myproject.aplicacion.dto.*;
 import com.uco.myproject.dominio.modelo.*;
-import org.aspectj.weaver.ast.Or;
 
 import java.util.Date;
 

@@ -4,16 +4,16 @@ public class EntidadDatosDeContacto {
 
     private String codigo;
     private String numeroFijo;
-    private String numeroCeluar;
+    private String numeroCelular;
     private String correoElectronico;
 
     public EntidadDatosDeContacto() {
     }
 
-    public EntidadDatosDeContacto(String codigo, String numeroFijo, String numeroCeluar, String correoElectronico) {
+    public EntidadDatosDeContacto(String codigo, String numeroFijo, String numeroCelular, String correoElectronico) {
         this.codigo = codigo;
         this.numeroFijo = numeroFijo;
-        this.numeroCeluar = numeroCeluar;
+        this.numeroCelular = numeroCelular;
         this.correoElectronico = correoElectronico;
     }
 
@@ -33,12 +33,12 @@ public class EntidadDatosDeContacto {
         this.numeroFijo = numeroFijo;
     }
 
-    public String getNumeroCeluar() {
-        return numeroCeluar;
+    public String getNumeroCelular() {
+        return numeroCelular;
     }
 
-    public void setNumeroCeluar(String numeroCeluar) {
-        this.numeroCeluar = numeroCeluar;
+    public void setNumeroCelular(String numeroCeluar) {
+        this.numeroCelular = numeroCeluar;
     }
 
     public String getCorreoElectronico() {
