@@ -14,24 +14,4 @@ public class DtoAhorroPrevio {
         this.subsidioCajaCompesacion = subsidioCajaCompesacion;
     }
 
-    public DtoAhorroPrevio(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public int getCuentaAhorroProgramado() {
-        return cuentaAhorroProgramado;
-    }
-
-    public int getCesantias() {
-        return cesantias;
-    }
-
-    public int getSubsidioCajaCompesacion() {
-        return subsidioCajaCompesacion;
-    }
-
 }
