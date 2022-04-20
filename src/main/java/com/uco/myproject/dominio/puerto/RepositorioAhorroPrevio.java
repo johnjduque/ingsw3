@@ -1,6 +1,5 @@
 package com.uco.myproject.dominio.puerto;
 
-import com.uco.myproject.aplicacion.dto.DtoAhorroPrevio;
 import com.uco.myproject.dominio.modelo.AhorroPrevio;
 
 import java.util.List;

@@ -40,4 +40,36 @@ public class Persona {
         this.fechaNacimiento = fechaNacimiento;
         this.ingresoMensual = ingresoMensual;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public int getDocumentoIdentidad() {
+        return documentoIdentidad;
+    }
+
+    public String getPrimerNombre() {
+        return primerNombre;
+    }
+
+    public String getSegundoNombre() {
+        return segundoNombre;
+    }
+
+    public String getPrimerApellido() {
+        return primerApellido;
+    }
+
+    public String getSegundoApellido() {
+        return segundoApellido;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public int getIngresoMensual() {
+        return ingresoMensual;
+    }
 }

@@ -1,6 +1,5 @@
 package com.uco.myproject.infraestructura.adaptador.repositorio;
 
-import com.uco.myproject.aplicacion.dto.DtoAhorroPrevio;
 import com.uco.myproject.dominio.modelo.AhorroPrevio;
 import com.uco.myproject.dominio.puerto.RepositorioAhorroPrevio;
 import com.uco.myproject.infraestructura.adaptador.entidad.EntidadAhorroPrevio;
@@ -29,7 +28,7 @@ public class RepositorioAhorroPrevioPostgresql implements RepositorioAhorroPrevi
     public AhorroPrevio consultarPorId(Long id) {
         return this.repositorioAhorroPrevioJpa
                 .findById(id)
-                .map(entidad -> AhorroPrevio.of(entidad.getCuentaAhorroProgramado(), entidad.getCesantias(),
+                .map(entidad -> AhorroPrevio.of(entidad.getCuentaAhorroProgramado(),entidad.getCesantias(),
                         entidad.getSubsidioCajaCompesacion()))
                 .orElse(null);
     }
@@ -37,7 +36,7 @@ public class RepositorioAhorroPrevioPostgresql implements RepositorioAhorroPrevi
     @Override
     public Long guardar(AhorroPrevio ahorroPrevio) {
         EntidadAhorroPrevio entidadAhorroPrevio = new EntidadAhorroPrevio(ahorroPrevio.getCuentaAhorroProgramado(),
-                ahorroPrevio.getCesantias(), ahorroPrevio.getSubsidioCajaCompesacion());
+                ahorroPrevio.getCesantias(),ahorroPrevio.getSubsidioCajaCompesacion());
         return this.repositorioAhorroPrevioJpa.save(entidadAhorroPrevio).getId();
     }
 

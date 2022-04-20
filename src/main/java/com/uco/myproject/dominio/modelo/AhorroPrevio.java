@@ -26,4 +26,20 @@ public class AhorroPrevio{
         this.cesantias = cesantias;
         this.subsidioCajaCompesacion = subsidioCajaCompesacion;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public float getCuentaAhorroProgramado() {
+        return cuentaAhorroProgramado;
+    }
+
+    public float getCesantias() {
+        return cesantias;
+    }
+
+    public float getSubsidioCajaCompesacion() {
+        return subsidioCajaCompesacion;
+    }
 }

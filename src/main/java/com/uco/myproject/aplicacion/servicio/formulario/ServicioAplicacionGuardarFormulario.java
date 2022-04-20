@@ -10,7 +10,6 @@ import com.uco.myproject.dominio.servicio.formulario.ServicioGuardarFormulario;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -46,7 +45,6 @@ public class ServicioAplicacionGuardarFormulario {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate fechaNacimiento = LocalDate.parse(persona.getFechaNacimiento(), format);
         return Persona.of(persona.getDocumentoIdentidad(),persona.getPrimerNombre(),persona.getSegundoNombre(),
-                persona.getPrimerApellido(),persona.getSegundoApellido(), fechaNacimiento,
-                persona.getIngresoMensual());
+                persona.getPrimerApellido(),persona.getSegundoApellido(),fechaNacimiento,persona.getIngresoMensual());
     }
 }

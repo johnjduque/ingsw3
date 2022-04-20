@@ -6,9 +6,6 @@ import com.uco.myproject.infraestructura.adaptador.entidad.EntidadPersona;
 import com.uco.myproject.infraestructura.adaptador.repositorio.jpa.RepositorioPersonaJpa;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Repository
