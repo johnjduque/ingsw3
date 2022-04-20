@@ -2,9 +2,7 @@ package com.uco.myproject.dominio.modelo;
 
 import com.uco.myproject.dominio.validarobligatorio.ValidarNumero;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 
-@Getter
 @AllArgsConstructor
 public class AhorroPrevio{
 
@@ -25,5 +23,21 @@ public class AhorroPrevio{
         this.cuentaAhorroProgramado = cuentaAhorroProgramado;
         this.cesantias = cesantias;
         this.subsidioCajaCompesacion = subsidioCajaCompesacion;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public float getCuentaAhorroProgramado() {
+        return cuentaAhorroProgramado;
+    }
+
+    public float getCesantias() {
+        return cesantias;
+    }
+
+    public float getSubsidioCajaCompesacion() {
+        return subsidioCajaCompesacion;
     }
 }

@@ -1,12 +1,10 @@
 package com.uco.myproject.aplicacion.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 public class DtoPersona {
 
     private int documentoIdentidad;
@@ -16,4 +14,32 @@ public class DtoPersona {
     private String segundoApellido;
     private String fechaNacimiento;
     private int ingresoMensual;
+
+    public int getDocumentoIdentidad() {
+        return documentoIdentidad;
+    }
+
+    public String getPrimerNombre() {
+        return primerNombre;
+    }
+
+    public String getSegundoNombre() {
+        return segundoNombre;
+    }
+
+    public String getPrimerApellido() {
+        return primerApellido;
+    }
+
+    public String getSegundoApellido() {
+        return segundoApellido;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public int getIngresoMensual() {
+        return ingresoMensual;
+    }
 }

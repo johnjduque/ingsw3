@@ -5,11 +5,9 @@ import com.uco.myproject.dominio.validarobligatorio.ValidarEmail;
 import com.uco.myproject.dominio.validarobligatorio.ValidarObjeto;
 import com.uco.myproject.dominio.validarobligatorio.ValidarTexto;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 import java.util.List;
 
-@Getter
 @AllArgsConstructor
 public class Formulario {
 
@@ -44,5 +42,37 @@ public class Formulario {
         this.aceptoAvisoDePrivacidad = aceptoAvisoDePrivacidad;
         this.correoElectronico = correoElectronico;
         this.ahorroPrevio = ahorroPrevio;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public List<Persona> getPersonas() {
+        return personas;
+    }
+
+    public String getClasificacionSisben() {
+        return clasificacionSisben;
+    }
+
+    public boolean isPoseeDerechosDePropiedad() {
+        return poseeDerechosDePropiedad;
+    }
+
+    public boolean isAceptoJuramento() {
+        return aceptoJuramento;
+    }
+
+    public boolean isAceptoAvisoDePrivacidad() {
+        return aceptoAvisoDePrivacidad;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public AhorroPrevio getAhorroPrevio() {
+        return ahorroPrevio;
     }
 }

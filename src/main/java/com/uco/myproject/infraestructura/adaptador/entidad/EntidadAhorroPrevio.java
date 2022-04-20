@@ -1,12 +1,7 @@
 package com.uco.myproject.infraestructura.adaptador.entidad;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 
-@Getter
-@Setter
 @Entity
 @Table(name = "ahorroprevio")
 public class EntidadAhorroPrevio {
@@ -27,5 +22,37 @@ public class EntidadAhorroPrevio {
 
     public EntidadAhorroPrevio() {
 
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public float getCuentaAhorroProgramado() {
+        return cuentaAhorroProgramado;
+    }
+
+    public void setCuentaAhorroProgramado(float cuentaAhorroProgramado) {
+        this.cuentaAhorroProgramado = cuentaAhorroProgramado;
+    }
+
+    public float getCesantias() {
+        return cesantias;
+    }
+
+    public void setCesantias(float cesantias) {
+        this.cesantias = cesantias;
+    }
+
+    public float getSubsidioCajaCompesacion() {
+        return subsidioCajaCompesacion;
+    }
+
+    public void setSubsidioCajaCompesacion(float subsidioCajaCompesacion) {
+        this.subsidioCajaCompesacion = subsidioCajaCompesacion;
     }
 }

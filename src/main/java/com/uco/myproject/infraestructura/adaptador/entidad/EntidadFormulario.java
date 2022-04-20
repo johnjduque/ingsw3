@@ -1,11 +1,8 @@
 package com.uco.myproject.infraestructura.adaptador.entidad;
 
-import lombok.Getter;
-
 import javax.persistence.*;
 import java.util.List;
 
-@Getter
 @Entity
 @Table(name = "formulario")
 public class EntidadFormulario {
@@ -46,6 +43,70 @@ public class EntidadFormulario {
         this.aceptoJuramento = aceptoJuramento;
         this.aceptoAvisoDePrivacidad = aceptoAvisoDePrivacidad;
         this.correoElectronico = correoElectronico;
+        this.ahorroPrevio = ahorroPrevio;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<EntidadPersona> getPersonas() {
+        return personas;
+    }
+
+    public void setPersonas(List<EntidadPersona> personas) {
+        this.personas = personas;
+    }
+
+    public String getClasificacionSisben() {
+        return clasificacionSisben;
+    }
+
+    public void setClasificacionSisben(String clasificacionSisben) {
+        this.clasificacionSisben = clasificacionSisben;
+    }
+
+    public boolean isPoseeDerechosDePropiedad() {
+        return poseeDerechosDePropiedad;
+    }
+
+    public void setPoseeDerechosDePropiedad(boolean poseeDerechosDePropiedad) {
+        this.poseeDerechosDePropiedad = poseeDerechosDePropiedad;
+    }
+
+    public boolean isAceptoJuramento() {
+        return aceptoJuramento;
+    }
+
+    public void setAceptoJuramento(boolean aceptoJuramento) {
+        this.aceptoJuramento = aceptoJuramento;
+    }
+
+    public boolean isAceptoAvisoDePrivacidad() {
+        return aceptoAvisoDePrivacidad;
+    }
+
+    public void setAceptoAvisoDePrivacidad(boolean aceptoAvisoDePrivacidad) {
+        this.aceptoAvisoDePrivacidad = aceptoAvisoDePrivacidad;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
+
+    public EntidadAhorroPrevio getAhorroPrevio() {
+        return ahorroPrevio;
+    }
+
+    public void setAhorroPrevio(EntidadAhorroPrevio ahorroPrevio) {
         this.ahorroPrevio = ahorroPrevio;
     }
 }
