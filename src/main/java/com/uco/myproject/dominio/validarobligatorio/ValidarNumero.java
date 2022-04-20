@@ -2,6 +2,9 @@ package com.uco.myproject.dominio.validarobligatorio;
 
 public class ValidarNumero {
 
+    public ValidarNumero() {
+    }
+
     public static void validarObligatorioNumero(float valor, String mensaje) {
         if (validarNumeroNulo(valor)) {
             throw new NullPointerException(mensaje);

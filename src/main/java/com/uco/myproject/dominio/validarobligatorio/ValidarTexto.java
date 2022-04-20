@@ -2,6 +2,9 @@ package com.uco.myproject.dominio.validarobligatorio;
 
 public class ValidarTexto {
 
+    public ValidarTexto() {
+    }
+
     public static void validarObligatorioTexto(String texto, String mensaje) {
         if (textoEsNulo(texto) || textoEsEspacios(texto)) {
             throw new IllegalArgumentException(mensaje);

@@ -9,7 +9,6 @@ import com.uco.myproject.infraestructura.adaptador.entidad.EntidadFormulario;
 import com.uco.myproject.infraestructura.adaptador.entidad.EntidadPersona;
 import com.uco.myproject.infraestructura.adaptador.repositorio.jpa.RepositorioAhorroPrevioJpa;
 import com.uco.myproject.infraestructura.adaptador.repositorio.jpa.RepositorioFormularioJpa;
-import com.uco.myproject.infraestructura.adaptador.repositorio.jpa.RepositorioPersonaJpa;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,12 +17,10 @@ import java.util.List;
 public class RepositorioFormularioPostgresql implements RepositorioFormulario {
 
     private final RepositorioFormularioJpa repositorioFormularioJpa;
-    private final RepositorioPersonaJpa repositorioPersonaJpa;
     private final RepositorioAhorroPrevioJpa repositorioAhorroPrevioJpa;
 
-    public RepositorioFormularioPostgresql(RepositorioFormularioJpa repositorioFormularioJpa, RepositorioPersonaJpa repositorioPersonaJpa, RepositorioAhorroPrevioJpa repositorioAhorroPrevioJpa) {
+    public RepositorioFormularioPostgresql(RepositorioFormularioJpa repositorioFormularioJpa, RepositorioAhorroPrevioJpa repositorioAhorroPrevioJpa) {
         this.repositorioFormularioJpa = repositorioFormularioJpa;
-        this.repositorioPersonaJpa = repositorioPersonaJpa;
         this.repositorioAhorroPrevioJpa = repositorioAhorroPrevioJpa;
     }
 
@@ -87,7 +84,7 @@ public class RepositorioFormularioPostgresql implements RepositorioFormulario {
     }
 
     private EntidadFormulario ensamblarEntidadFormulario(Formulario formulario, EntidadAhorroPrevio ahorroPrevio){
-        return new EntidadFormulario(formulario.getId(),ensamblarEntidadPersonas(formulario.getPersonas()),formulario.getClasificacionSisben(),
+        return new EntidadFormulario(ensamblarEntidadPersonas(formulario.getPersonas()),formulario.getClasificacionSisben(),
                 formulario.isPoseeDerechosDePropiedad(),formulario.isAceptoJuramento(),formulario.isAceptoAvisoDePrivacidad(),
                 formulario.getCorreoElectronico(),ahorroPrevio);
     }

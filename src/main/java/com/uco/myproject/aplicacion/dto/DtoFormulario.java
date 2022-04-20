@@ -11,67 +11,11 @@ import java.util.List;
 @Getter
 public class DtoFormulario {
 
-    private List<DtoPersona> Personas;
-    private String ClasificacionSisben;
-    private boolean PoseeDerechosDePropiedad;
-    private boolean AceptoJuramento;
-    private boolean AceptoAvisoDePrivacidad;
-    private String CorreoElectronico;
-    private DtoAhorroPrevio AhorroPrevio;
-
-    public List<DtoPersona> getPersonas() {
-        return Personas;
-    }
-
-    public void setPersonas(List<DtoPersona> personas) {
-        Personas = personas;
-    }
-
-    public String getClasificacionSisben() {
-        return ClasificacionSisben;
-    }
-
-    public void setClasificacionSisben(String clasificacionSisben) {
-        this.ClasificacionSisben = clasificacionSisben;
-    }
-
-    public boolean isPoseeDerechosDePropiedad() {
-        return PoseeDerechosDePropiedad;
-    }
-
-    public void setPoseeDerechosDePropiedad(boolean poseeDerechosDePropiedad) {
-        PoseeDerechosDePropiedad = poseeDerechosDePropiedad;
-    }
-
-    public boolean isAceptoJuramento() {
-        return AceptoJuramento;
-    }
-
-    public void setAceptoJuramento(boolean aceptoJuramento) {
-        AceptoJuramento = aceptoJuramento;
-    }
-
-    public boolean isAceptoAvisoDePrivacidad() {
-        return AceptoAvisoDePrivacidad;
-    }
-
-    public void setAceptoAvisoDePrivacidad(boolean aceptoAvisoDePrivacidad) {
-        AceptoAvisoDePrivacidad = aceptoAvisoDePrivacidad;
-    }
-
-    public String getCorreoElectronico() {
-        return CorreoElectronico;
-    }
-
-    public void setCorreoElectronico(String correoElectronico) {
-        CorreoElectronico = correoElectronico;
-    }
-
-    public DtoAhorroPrevio getAhorroPrevio() {
-        return AhorroPrevio;
-    }
-
-    public void setAhorroPrevio(DtoAhorroPrevio ahorroPrevio) {
-        AhorroPrevio = ahorroPrevio;
-    }
+    private List<DtoPersona> personas;
+    private String clasificacionSisben;
+    private boolean poseeDerechosDePropiedad;
+    private boolean aceptoJuramento;
+    private boolean aceptoAvisoDePrivacidad;
+    private String correoElectronico;
+    private DtoAhorroPrevio ahorroPrevio;
 }

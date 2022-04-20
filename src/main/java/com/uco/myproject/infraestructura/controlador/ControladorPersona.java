@@ -1,9 +1,8 @@
 package com.uco.myproject.infraestructura.controlador;
 
+import com.uco.myproject.aplicacion.dto.DtoRespuesta;
 import com.uco.myproject.aplicacion.servicio.persona.ServicioAplicacionEliminarPersona;
 import com.uco.myproject.aplicacion.servicio.persona.ServicioAplicacionGuardarPersona;
-import com.uco.myproject.aplicacion.dto.DtoPersona;
-import com.uco.myproject.aplicacion.dto.DtoRespuesta;
 import com.uco.myproject.aplicacion.servicio.persona.ServicioAplicacionListarPersona;
 import com.uco.myproject.dominio.modelo.Persona;
 import org.springframework.web.bind.annotation.*;

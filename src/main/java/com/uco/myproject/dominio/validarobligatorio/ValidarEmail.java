@@ -4,6 +4,9 @@ public class ValidarEmail {
 
     private static final String PATRON_EMAIL = "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$";
 
+    public ValidarEmail() {
+    }
+
     public static void validarObligatorioEmail (String email, String mensaje){
         if (!aceptacionEmail(email,PATRON_EMAIL)){
             throw new IllegalArgumentException(mensaje);
