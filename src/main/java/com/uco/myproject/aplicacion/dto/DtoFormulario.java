@@ -1,61 +1,78 @@
 package com.uco.myproject.aplicacion.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
 public class DtoFormulario {
 
-    private String radicado;
-    private List<DtoPersona> personas;
-    private int clasificacionSisben;
-    private boolean poseeDerechosDePropiedad;
-    private boolean aceptoJuramento;
-    private boolean aceptoAvisoPrivacidad;
-    private DtoRecursosComplementarios recursosComplementarios;
-    private DtoAhorroPrevio ahorroPrevio;
-
-    public DtoFormulario(String radicado, List<DtoPersona> personas, int clasificacionSisben,
-                         boolean poseeDerechosDePropiedad, boolean aceptoJuramento,
-                         boolean aceptoAvisoPrivacidad, DtoRecursosComplementarios recursosComplementarios,
-                         DtoAhorroPrevio ahorroPrevio) {
-        this.radicado = radicado;
-        this.personas = personas;
-        this.clasificacionSisben = clasificacionSisben;
-        this.poseeDerechosDePropiedad = poseeDerechosDePropiedad;
-        this.aceptoJuramento = aceptoJuramento;
-        this.aceptoAvisoPrivacidad = aceptoAvisoPrivacidad;
-        this.recursosComplementarios = recursosComplementarios;
-        this.ahorroPrevio = ahorroPrevio;
-    }
-
-    public String getRadicado() {
-        return radicado;
-    }
+    private List<DtoPersona> Personas;
+    private String ClasificacionSisben;
+    private boolean PoseeDerechosDePropiedad;
+    private boolean AceptoJuramento;
+    private boolean AceptoAvisoDePrivacidad;
+    private String CorreoElectronico;
+    private DtoAhorroPrevio AhorroPrevio;
 
     public List<DtoPersona> getPersonas() {
-        return personas;
+        return Personas;
     }
 
-    public int getClasificacionSisben() {
-        return clasificacionSisben;
+    public void setPersonas(List<DtoPersona> personas) {
+        Personas = personas;
+    }
+
+    public String getClasificacionSisben() {
+        return ClasificacionSisben;
+    }
+
+    public void setClasificacionSisben(String clasificacionSisben) {
+        this.ClasificacionSisben = clasificacionSisben;
     }
 
     public boolean isPoseeDerechosDePropiedad() {
-        return poseeDerechosDePropiedad;
+        return PoseeDerechosDePropiedad;
+    }
+
+    public void setPoseeDerechosDePropiedad(boolean poseeDerechosDePropiedad) {
+        PoseeDerechosDePropiedad = poseeDerechosDePropiedad;
     }
 
     public boolean isAceptoJuramento() {
-        return aceptoJuramento;
+        return AceptoJuramento;
     }
 
-    public boolean isAceptoAvisoPrivacidad() {
-        return aceptoAvisoPrivacidad;
+    public void setAceptoJuramento(boolean aceptoJuramento) {
+        AceptoJuramento = aceptoJuramento;
     }
 
-    public DtoRecursosComplementarios getRecursosComplementarios() {
-        return recursosComplementarios;
+    public boolean isAceptoAvisoDePrivacidad() {
+        return AceptoAvisoDePrivacidad;
+    }
+
+    public void setAceptoAvisoDePrivacidad(boolean aceptoAvisoDePrivacidad) {
+        AceptoAvisoDePrivacidad = aceptoAvisoDePrivacidad;
+    }
+
+    public String getCorreoElectronico() {
+        return CorreoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        CorreoElectronico = correoElectronico;
     }
 
     public DtoAhorroPrevio getAhorroPrevio() {
-        return ahorroPrevio;
+        return AhorroPrevio;
+    }
+
+    public void setAhorroPrevio(DtoAhorroPrevio ahorroPrevio) {
+        AhorroPrevio = ahorroPrevio;
     }
 }

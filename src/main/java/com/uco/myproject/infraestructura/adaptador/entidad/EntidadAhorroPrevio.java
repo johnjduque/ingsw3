@@ -1,48 +1,31 @@
 package com.uco.myproject.infraestructura.adaptador.entidad;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Getter
+@Setter
+@Entity
+@Table(name = "ahorroprevio")
 public class EntidadAhorroPrevio {
 
-    private String codigo;
-    private int cuentaAhorroProgramado;
-    private int cesantias;
-    private int subsidioCajaCompesacion;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
 
-    public EntidadAhorroPrevio(String codigo, int cuentaAhorroProgramado, int cesantias, int subsidioCajaCompesacion) {
-        this.codigo = codigo;
+    private float cuentaAhorroProgramado;
+    private float cesantias;
+    private float subsidioCajaCompesacion;
+
+    public EntidadAhorroPrevio(float cuentaAhorroProgramado, float cesantias, float subsidioCajaCompesacion) {
         this.cuentaAhorroProgramado = cuentaAhorroProgramado;
         this.cesantias = cesantias;
         this.subsidioCajaCompesacion = subsidioCajaCompesacion;
     }
 
-    public String getCodigo() {
-        return codigo;
-    }
+    public EntidadAhorroPrevio() {
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public int getCuentaAhorroProgramado() {
-        return cuentaAhorroProgramado;
-    }
-
-    public void setCuentaAhorroProgramado(int cuentaAhorroProgramado) {
-        this.cuentaAhorroProgramado = cuentaAhorroProgramado;
-    }
-
-    public int getCesantias() {
-        return cesantias;
-    }
-
-    public void setCesantias(int cesantias) {
-        this.cesantias = cesantias;
-    }
-
-    public int getSubsidioCajaCompesacion() {
-        return subsidioCajaCompesacion;
-    }
-
-    public void setSubsidioCajaCompesacion(int subsidioCajaCompesacion) {
-        this.subsidioCajaCompesacion = subsidioCajaCompesacion;
     }
 }

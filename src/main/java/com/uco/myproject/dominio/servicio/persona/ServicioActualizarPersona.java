@@ -7,18 +7,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class ServicioActualizarPersona {
 
-    private static final String MENSAJE_NO_EXISTE = "El ususario que desea actualizar no se encuentra registrado";
+    private static final String PERSONA_NO_ACTUALIZADA = "La persona no se puede actualizar, no se encuentra en el sistema";
+
     private final RepositorioPersona repositorioPersona;
 
-    public ServicioActualizarPersona(RepositorioPersona repositorioPersona) {
+    public ServicioActualizarPersona(RepositorioPersona repositorioPersona)
+    {
         this.repositorioPersona = repositorioPersona;
     }
 
-    public boolean actualizar(int documentoIdentidad, Persona persona){
-        if(this.repositorioPersona.consultarPorId(documentoIdentidad) == null){
-            throw new IllegalArgumentException(MENSAJE_NO_EXISTE);
+    public Boolean ejecutar(int documentoIdentidad, Persona persona){
+        if(repositorioPersona.consultarPorId(documentoIdentidad) != null){
+            return repositorioPersona.actualizar(documentoIdentidad, persona);
+        }else
+        {
+            throw new IllegalStateException(PERSONA_NO_ACTUALIZADA);
         }
-
-        return this.repositorioPersona.actualizar(documentoIdentidad, persona);
     }
 }

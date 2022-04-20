@@ -3,7 +3,8 @@ package com.uco.myproject.dominio.modelo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 class PersonaTest {
 
@@ -12,37 +13,85 @@ class PersonaTest {
         //patron 3a
 
         //arrange (prepara todos los datos para la prueba)
-        String codigo = "1";
-        int documentoIdentidad = 1036936749;
-        String primerNombre = "John";
+        int documentoIdentidad = 1234567890;
+        String primerNombre = "juan";
         String segundoNombre = "";
-        String primerApellido = "Duque";
+        String primerApellido = "castaño";
         String segundoApellido = "";
-        Date fechaNacimiento = new Date();
+        LocalDate fechaNacimiento = LocalDate.of(1990,2,4);
         int ingresoMensual = 1000000;
-        TipoDeDocumento tipoDeDocumento = new TipoDeDocumento("1","cédula");
-        Genero genero = new Genero("1","femenino");
-        EstadoCivil estadoCivil = new EstadoCivil("1","casado");
-        CondicionEspecialMedica condicionEspecialMedica = new CondicionEspecialMedica("1","discapacitado");
-        CondicionEspecialSocioeconomica condicionEspecialSocioeconomica = new CondicionEspecialSocioeconomica("1","cabeza madre de hogar");
-        TipoDePostulante tipoDePostulante = new TipoDePostulante("1","jefe de hogar");
-        Ocupacion ocupacion = new Ocupacion("1","empleado");
-        OrientacionSexual orientacionSexual = new OrientacionSexual("1","heterosexual");
-        DatosDeContacto datosDeContacto = new DatosDeContacto("1","6046150151","3207123838","jduque@rionegro.gov.co");
 
         //act (ejecuta el metodo a probar)
-        Persona persona = Persona.of(codigo,documentoIdentidad,primerNombre,segundoNombre,primerApellido,
-                segundoApellido,fechaNacimiento,ingresoMensual,tipoDeDocumento,genero,estadoCivil,condicionEspecialMedica,
-                condicionEspecialSocioeconomica,tipoDePostulante,ocupacion,orientacionSexual,datosDeContacto);
+        Persona persona = Persona.of(documentoIdentidad,primerNombre,segundoNombre,primerApellido,segundoApellido,fechaNacimiento,ingresoMensual);
 
         //assert se valida el resultado
 
-        Assertions.assertEquals("1",persona.getCodigo());
-        Assertions.assertEquals(1036936749,persona.getDocumentoIdentidad());
-        Assertions.assertEquals("John",persona.getPrimerNombre());
+        Assertions.assertEquals(1234567890,persona.getDocumentoIdentidad());
+        Assertions.assertEquals("juan",persona.getPrimerNombre());
         Assertions.assertEquals("",persona.getSegundoNombre());
-        Assertions.assertEquals("Duque",persona.getPrimerApellido());
+        Assertions.assertEquals("castaño",persona.getPrimerApellido());
         Assertions.assertEquals("",persona.getSegundoApellido());
+        Assertions.assertEquals(LocalDate.of(1990,2,4),persona.getFechaNacimiento());
         Assertions.assertEquals(1000000,persona.getIngresoMensual());
+    }
+
+    @Test
+    void validarCamposFaltantes() {
+        //patron 3a
+
+        //arrange (prepara todos los datos para la prueba)
+        int documentoIdentidad = 1234567890;
+        String primerNombre = null;
+        String segundoNombre = "";
+        String primerApellido = "castaño";
+        String segundoApellido = "";
+        LocalDate fechaNacimiento = LocalDate.of(1990,2,4);;
+        int ingresoMensual = 1000000;
+
+        //act - assert (ejecuta el metodo a probar)
+
+        Assertions.assertEquals("El primer nombre no puede ser vacio",Assertions.assertThrows(IllegalArgumentException.class, () ->
+                Persona.of(documentoIdentidad,primerNombre,segundoNombre,primerApellido,segundoApellido,fechaNacimiento,ingresoMensual)
+        ).getMessage());
+    }
+
+    @Test
+    void validarCamposVacios() {
+        //patron 3a
+
+        //arrange (prepara todos los datos para la prueba)
+        int documentoIdentidad = 1234567890;
+        String primerNombre = "";
+        String segundoNombre = "";
+        String primerApellido = "castaño";
+        String segundoApellido = "";
+        LocalDate fechaNacimiento = LocalDate.of(1990,2,4);
+        int ingresoMensual = 1000000;
+
+        //act - assert (ejecuta el metodo a probar)
+
+        Assertions.assertEquals("El primer nombre no puede ser vacio",Assertions.assertThrows(IllegalArgumentException.class, () ->
+                Persona.of(documentoIdentidad,primerNombre,segundoNombre,primerApellido,segundoApellido,fechaNacimiento,ingresoMensual)
+        ).getMessage());
+    }
+
+    @Test
+    void validarCamposNegativos() {
+        //patron 3a
+
+        //arrange (prepara todos los datos para la prueba)
+        int documentoIdentidad = 1234567890;
+        String primerNombre = "John";
+        String segundoNombre = "";
+        String primerApellido = "castaño";
+        String segundoApellido = "";
+        LocalDate fechaNacimiento = LocalDate.of(1990,2,4);
+        int ingresoMensual = -500000;
+
+        //act - assert (ejecuta el metodo a probar)
+
+        Assertions.assertEquals("El ingreso mensual no puede ser vacio o menor a cero, sino posee ingreso coloque 0",Assertions.assertThrows(IllegalArgumentException.class, () ->
+                Persona.of(documentoIdentidad,primerNombre,segundoNombre,primerApellido,segundoApellido,fechaNacimiento,ingresoMensual)
+        ).getMessage());
     }
 }

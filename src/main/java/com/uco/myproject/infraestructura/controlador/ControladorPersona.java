@@ -1,12 +1,11 @@
 package com.uco.myproject.infraestructura.controlador;
 
+import com.uco.myproject.aplicacion.servicio.persona.ServicioAplicacionEliminarPersona;
+import com.uco.myproject.aplicacion.servicio.persona.ServicioAplicacionGuardarPersona;
 import com.uco.myproject.aplicacion.dto.DtoPersona;
-import com.uco.myproject.aplicacion.dto.respuesta.DtoRespuesta;
-import com.uco.myproject.aplicacion.servicio.ServicioAplicacionActualizarPersona;
-import com.uco.myproject.aplicacion.servicio.ServicioAplicacionBorrarPersona;
-import com.uco.myproject.aplicacion.servicio.ServicioAplicacionGuardarPersona;
-import com.uco.myproject.aplicacion.servicio.ServicioAplicacionListarPersonas;
-import com.uco.myproject.dominio.dto.DtoPersonaResumen;
+import com.uco.myproject.aplicacion.dto.DtoRespuesta;
+import com.uco.myproject.aplicacion.servicio.persona.ServicioAplicacionListarPersona;
+import com.uco.myproject.dominio.modelo.Persona;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,35 +14,29 @@ import java.util.List;
 @RequestMapping("/api/personas")
 public class ControladorPersona {
 
-    private final ServicioAplicacionGuardarPersona servicioAplicacionGuardarPersona;
-    private final ServicioAplicacionListarPersonas servicioAplicacionListarPersonas;
-    private final ServicioAplicacionBorrarPersona servicioAplicacionBorrarPersona;
-    private final ServicioAplicacionActualizarPersona servicioAplicacionActualizarPersona;
+    private final ServicioAplicacionEliminarPersona servicioEliminarPersona;
+    private final ServicioAplicacionGuardarPersona servicioGuardarPersona;
+    private final ServicioAplicacionListarPersona servicioListarPersona;
 
-    public ControladorPersona(ServicioAplicacionGuardarPersona servicioAplicacionGuardarPersona, ServicioAplicacionListarPersonas servicioAplicacionListarPersonas, ServicioAplicacionBorrarPersona servicioAplicacionBorrarPersona, ServicioAplicacionActualizarPersona servicioAplicacionActualizarPersona) {
-        this.servicioAplicacionGuardarPersona = servicioAplicacionGuardarPersona;
-        this.servicioAplicacionListarPersonas = servicioAplicacionListarPersonas;
-        this.servicioAplicacionBorrarPersona = servicioAplicacionBorrarPersona;
-        this.servicioAplicacionActualizarPersona = servicioAplicacionActualizarPersona;
-    }
-
-    @PostMapping
-    public DtoRespuesta<Long> crear(@RequestBody DtoPersona dtoPersona){
-        return this.servicioAplicacionGuardarPersona.guardar(dtoPersona);
-    }
-
-    @GetMapping
-    public List<DtoPersonaResumen> listar(){
-        return servicioAplicacionListarPersonas.listar();
+    public ControladorPersona(ServicioAplicacionEliminarPersona servicioEliminarPersona, ServicioAplicacionGuardarPersona servicioGuardarPersona, ServicioAplicacionListarPersona servicioListarPersona) {
+        this.servicioEliminarPersona = servicioEliminarPersona;
+        this.servicioGuardarPersona = servicioGuardarPersona;
+        this.servicioListarPersona = servicioListarPersona;
     }
 
     @DeleteMapping(value = "/{documentoIdentidad}")
-    public DtoRespuesta<Boolean> borrar(@PathVariable int documentoIdentidad){
-        return this.servicioAplicacionBorrarPersona.borrar(documentoIdentidad);
+    public DtoRespuesta<Boolean> eliminar(@PathVariable int documentoIdentidad) {
+        return this.servicioEliminarPersona.ejecutar(documentoIdentidad);
     }
 
-    @PutMapping(value = "/{documentoIdentidad}")
-    public DtoRespuesta<Boolean> actualizar(@PathVariable int documentoIdentidad, @RequestBody DtoPersona dtoPersona){
-        return this.servicioAplicacionActualizarPersona.actualizar(documentoIdentidad, dtoPersona);
+    /*@PostMapping
+    public DtoRespuesta<Long> crear(@RequestBody DtoPersona dto) {
+
+        return this.servicioGuardarPersona.ejecutar(dto);
+    }*/
+
+    @GetMapping
+    public List<Persona> listar(){
+        return this.servicioListarPersona.ejecutar();
     }
 }

@@ -1,47 +1,29 @@
 package com.uco.myproject.dominio.modelo;
 
-public record AhorroPrevio(String codigo, int cuentaAhorroProgramado, int cesantias,
-                           int subsidioCajaCompesacion) {
+import com.uco.myproject.dominio.validarobligatorio.ValidarNumero;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-    public static AhorroPrevio of(String codigo, int cuentaAhorroProgramado, int cesantias, int subsidioCajaCompesacion) {
-        validarObligatorioTexto(codigo, "El código no puede ser vacío");
-        validarObligatorioNumero(cuentaAhorroProgramado, "La cuenta de Ahorro programado no puede ser vacío");
-        validarObligatorioNumero(cesantias, "Las cesantías no pueden ser vacías");
-        validarObligatorioNumero(subsidioCajaCompesacion, "El subsidio de la caja de compesación dno puede ser vacía");
+@Getter
+@AllArgsConstructor
+public class AhorroPrevio{
 
-        return new AhorroPrevio(codigo, cuentaAhorroProgramado, cesantias, subsidioCajaCompesacion);
+    private Long id;
+    private float cuentaAhorroProgramado;
+    private float cesantias;
+    private float subsidioCajaCompesacion;
+
+    public static AhorroPrevio of(float cuentaAhorroProgramado, float cesantias, float subsidioCajaCompesacion) {
+        ValidarNumero.validarObligatorioNumero(cuentaAhorroProgramado, "La cuenta de Ahorro programado no puede ser vacío o menor a cero");
+        ValidarNumero.validarObligatorioNumero(cesantias, "Las cesantías no pueden ser vacías o menor a cero");
+        ValidarNumero.validarObligatorioNumero(subsidioCajaCompesacion, "El subsidio de la caja de compesación dno puede ser vacía o menor a cero");
+
+        return new AhorroPrevio(cuentaAhorroProgramado, cesantias, subsidioCajaCompesacion);
     }
 
-    private static void validarObligatorioTexto(String valor, String mensaje) {
-        if (valor == null || valor.isBlank()) {
-            throw new IllegalArgumentException(mensaje);
-        }
+    public AhorroPrevio(float cuentaAhorroProgramado, float esantias, float subsidioCajaCompesacion) {
+        this.cuentaAhorroProgramado = cuentaAhorroProgramado;
+        this.cesantias = cesantias;
+        this.subsidioCajaCompesacion = subsidioCajaCompesacion;
     }
-
-    private static void validarObligatorioNumero(int valor, String mensaje) {
-        if (esNulo(valor)) {
-            throw new NumberFormatException(mensaje);
-        }
-    }
-
-    public static <T> boolean esNulo(T objeto) {
-        return objeto == null;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public int getCuentaAhorroProgramado() {
-        return cuentaAhorroProgramado;
-    }
-
-    public int getCesantias() {
-        return cesantias;
-    }
-
-    public int getSubsidioCajaCompesacion() {
-        return subsidioCajaCompesacion;
-    }
-
 }

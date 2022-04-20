@@ -7,7 +7,9 @@ import java.util.List;
 public interface RepositorioFormulario {
 
     List<Formulario> listar();
-    Formulario consultarPorId(String codigo);
+    Formulario consultarPorId(Long id);
     void guardar(Formulario formulario);
     boolean existe(Formulario formulario);
+    void eliminar(Long id);
+    void actualizar(Long id, Formulario formulario);
 }
