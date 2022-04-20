@@ -21,7 +21,7 @@ public class AhorroPrevio{
         return new AhorroPrevio(cuentaAhorroProgramado, cesantias, subsidioCajaCompesacion);
     }
 
-    public AhorroPrevio(float cuentaAhorroProgramado, float esantias, float subsidioCajaCompesacion) {
+    public AhorroPrevio(float cuentaAhorroProgramado, float cesantias, float subsidioCajaCompesacion) {
         this.cuentaAhorroProgramado = cuentaAhorroProgramado;
         this.cesantias = cesantias;
         this.subsidioCajaCompesacion = subsidioCajaCompesacion;
