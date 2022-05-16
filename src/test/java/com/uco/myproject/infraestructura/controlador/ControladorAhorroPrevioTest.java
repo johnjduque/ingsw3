@@ -1,11 +1,11 @@
-package com.uco.myproject.infraestructura.controlador;
+/*package com.uco.myproject.infraestructura.controlador;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.uco.myproject.aplicacion.dto.DtoPersona;
+import com.uco.myproject.aplicacion.dto.DtoAhorroPrevio;
 import com.uco.myproject.aplicacion.dto.DtoRespuesta;
-import com.uco.myproject.dominio.puerto.RepositorioPersona;
+import com.uco.myproject.dominio.puerto.RepositorioAhorroPrevio;
 import com.uco.myproject.infraestructura.ApplicationMock;
-import com.uco.myproject.infraestructura.testdatabuilder.DtoPersonaTestDataBuilder;
+import com.uco.myproject.infraestructura.testdatabuilder.DtoAhorroPrevioTestDataBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -32,8 +32,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ContextConfiguration(classes = ApplicationMock.class)
 @ActiveProfiles("test")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-public class ControladorPersonaTest {
-
+class ControladorAhorroPrevioTest {
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -42,19 +41,19 @@ public class ControladorPersonaTest {
     private MockMvc mocMvc;
 
     @Autowired
-    RepositorioPersona repositorioPersona;
+    RepositorioAhorroPrevio repositorioAhorroPrevio;
 
     @Test
-    @DisplayName("Debe crear una persona de forma exitosa y luego fallar al crear la misma")
+    @DisplayName("Debe crear un ahorro previo de forma exitosa y luego fallar al crear la misma")
     void crearDuplicadaTest() throws Exception {
 
         // arrange
-        var dto = new DtoPersonaTestDataBuilder().build();
+        var dto = new DtoAhorroPrevioTestDataBuilder().build();
 
         crear(dto);
 
         // act - assert
-        mocMvc.perform(MockMvcRequestBuilders.post("/api/personas")
+        mocMvc.perform(MockMvcRequestBuilders.post("/api/ahorrosprevios")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(dto))
                 )
@@ -63,20 +62,20 @@ public class ControladorPersonaTest {
 
 
     @Test
-    @DisplayName("Debe crear una persona de forma exitosa y validar que si quedó guardada")
+    @DisplayName("Debe crear un ahorro previo de forma exitosa y validar que si quedó guardada")
     void crearTest() throws Exception {
 
-        var dto = new DtoPersonaTestDataBuilder().build();
+        var dto = new DtoAhorroPrevioTestDataBuilder().build();
 
         crear(dto);
     }
 
-    private void crear(DtoPersona dto) throws Exception {
+    private void crear(DtoAhorroPrevio dto) throws Exception {
 
         // arrange
 
         // act
-        var result = mocMvc.perform(MockMvcRequestBuilders.post("/api/personas")
+        var result = mocMvc.perform(MockMvcRequestBuilders.post("/api/ahorrosprevios")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(dto))
                 )
@@ -90,34 +89,28 @@ public class ControladorPersonaTest {
         Long id = respuesta.getValor().longValue();
         Assertions.assertNotNull(id);
 
-        var persona = repositorioPersona.consultarPorId(Math.toIntExact(id));
+        var ahorroPrevio = repositorioAhorroPrevio.consultarPorId((id));
 
-        Assertions.assertEquals(dto.getDocumentoIdentidad(), persona.getDocumentoIdentidad());
-        Assertions.assertEquals(dto.getPrimerNombre(), persona.getPrimerNombre());
-        Assertions.assertEquals(dto.getSegundoNombre(), persona.getSegundoNombre());
-        Assertions.assertEquals(dto.getPrimerApellido(), persona.getPrimerApellido());
-        Assertions.assertEquals(dto.getSegundoApellido(), persona.getSegundoApellido());
-        Assertions.assertEquals(dto.getFechaNacimiento(), persona.getFechaNacimiento());
-        Assertions.assertEquals(dto.getIngresoMensual(), persona.getIngresoMensual());
+        Assertions.assertEquals(dto.getDocumentoIdentidadJefeHogar(), ahorroPrevio.getDocumentoIdentidadJefeHogar());
+        Assertions.assertEquals(dto.getCesantias(), ahorroPrevio.getCesantias());
+        Assertions.assertEquals(dto.getCuentaAhorroProgramado(), ahorroPrevio.getCuentaAhorroProgramado());
+        Assertions.assertEquals(dto.getSubsidioCajaCompesacion(), ahorroPrevio.getSubsidioCajaCompesacion());
     }
 
     @Test
-    @DisplayName("Debe listar las personas luego de crearlas")
+    @DisplayName("Debe listar los ahorros previos luego de crearlos")
     void listarTest() throws Exception {
 
-        var dto = new DtoPersonaTestDataBuilder().build();
+        var dto = new DtoAhorroPrevioTestDataBuilder().build();
 
         crear(dto);
 
-        mocMvc.perform(get("/api/personas")
+        mocMvc.perform(get("/api/ahorrosprevios")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].documentoidentidad", is(dto.getDocumentoIdentidad())))
-                .andExpect(jsonPath("$[0].primernombre", is(dto.getPrimerNombre())))
-                .andExpect(jsonPath("$[0].segundonombre", is(dto.getSegundoNombre())))
-                .andExpect(jsonPath("$[0].primerapellido", is(dto.getPrimerApellido())))
-                .andExpect(jsonPath("$[0].segundoapellido", is(dto.getSegundoApellido())))
-                .andExpect(jsonPath("$[0].fechanacimiento", is(dto.getFechaNacimiento())))
-                .andExpect(jsonPath("$[0].ingresomensual", is(dto.getIngresoMensual())));
+                .andExpect(jsonPath("$[0].documentoidentidadjefehogar", is(dto.getDocumentoIdentidadJefeHogar())))
+                .andExpect(jsonPath("$[0].cesantias", is(dto.getCesantias())))
+                .andExpect(jsonPath("$[0].ahorroprogramado", is(dto.getCuentaAhorroProgramado())))
+                .andExpect(jsonPath("$[0].subsidiocajacompesacion", is(dto.getSubsidioCajaCompesacion())));
     }
-}
+}*/

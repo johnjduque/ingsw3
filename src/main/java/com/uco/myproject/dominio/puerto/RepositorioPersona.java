@@ -8,7 +8,7 @@ public interface RepositorioPersona {
 
     List<Persona> listar();
     Persona consultarPorId(int documentoIdentidad);
-    Long guardar(Persona persona);
+    int guardar(Persona persona);
     boolean existe(Persona persona);
     boolean eliminar(int documentoIdentidad);
     boolean actualizar(int documentoIdentidad, Persona persona);

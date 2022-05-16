@@ -1,4 +1,4 @@
-package com.uco.myproject.aplicacion.servicio.formulario;
+/*package com.uco.myproject.aplicacion.servicio.formulario;
 
 import com.uco.myproject.aplicacion.dto.DtoAhorroPrevio;
 import com.uco.myproject.aplicacion.dto.DtoFormulario;
@@ -7,13 +7,13 @@ import com.uco.myproject.dominio.modelo.AhorroPrevio;
 import com.uco.myproject.dominio.modelo.Formulario;
 import com.uco.myproject.dominio.modelo.Persona;
 import com.uco.myproject.dominio.servicio.formulario.ServicioGuardarFormulario;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-@Service
+@Component
 public class ServicioAplicacionGuardarFormulario {
 
     private final ServicioGuardarFormulario servicioGuardarFormulario;
@@ -27,13 +27,13 @@ public class ServicioAplicacionGuardarFormulario {
     }
 
     private Formulario ensamblarFormulario(DtoFormulario formulario){
-        return Formulario.of(ensamblarPersonas(formulario.getPersonas()),formulario.getClasificacionSisben(),
+        return Formulario.of(formulario.getDocumentoIdentidadJefeHogar(),ensamblarPersonas(formulario.getPersonas()),formulario.getClasificacionSisben(),
                 formulario.isPoseeDerechosDePropiedad(),formulario.isAceptoJuramento(),formulario.isAceptoAvisoDePrivacidad(),
                 formulario.getCorreoElectronico(),ensamblarAhorroPrevio(formulario.getAhorroPrevio()));
     }
 
     private AhorroPrevio ensamblarAhorroPrevio(DtoAhorroPrevio ahorroPrevio){
-        return AhorroPrevio.of(ahorroPrevio.getCuentaAhorroProgramado(),ahorroPrevio.getCesantias(),
+        return AhorroPrevio.of(ahorroPrevio.getDocumentoIdentidadJefeHogar(),ahorroPrevio.getCuentaAhorroProgramado(),ahorroPrevio.getCesantias(),
                 ahorroPrevio.getSubsidioCajaCompesacion());
     }
 
@@ -47,4 +47,4 @@ public class ServicioAplicacionGuardarFormulario {
         return Persona.of(persona.getDocumentoIdentidad(),persona.getPrimerNombre(),persona.getSegundoNombre(),
                 persona.getPrimerApellido(),persona.getSegundoApellido(),fechaNacimiento,persona.getIngresoMensual());
     }
-}
+}*/

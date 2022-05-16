@@ -2,11 +2,11 @@ package com.uco.myproject.aplicacion.servicio.persona;
 
 import com.uco.myproject.dominio.modelo.Persona;
 import com.uco.myproject.dominio.puerto.RepositorioPersona;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Service
+@Component
 public class ServicioAplicacionListarPersona {
 
     private final RepositorioPersona repositorioPersona;

@@ -17,7 +17,7 @@ public class ServicioGuardarFormulario {
 
     public void ejecutar(Formulario formulario) {
 
-        if(formulario.getId() != null && repositorioFormulario.existe(formulario)) {
+        if(formulario.getDocumentoIdentidadJefeHogar() != null && repositorioFormulario.existe(formulario)) {
             throw new IllegalStateException(MENSAJE_YA_EXISTE);
         }
 

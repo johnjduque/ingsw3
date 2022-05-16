@@ -37,8 +37,8 @@ public class RepositorioFormularioPostgresql implements RepositorioFormulario {
     @Override
     public void guardar(Formulario formulario) {
         EntidadAhorroPrevio ahorroPrevio;
-        if(formulario.getAhorroPrevio().getId() != null){
-            ahorroPrevio = this.repositorioAhorroPrevioJpa.findById(formulario.getAhorroPrevio().getId()).map(
+        if(formulario.getAhorroPrevio().getDocumentoIdentidadJefeHogar() != null){
+            ahorroPrevio = this.repositorioAhorroPrevioJpa.findById(formulario.getAhorroPrevio().getDocumentoIdentidadJefeHogar()).map(
                     this::ensamblarEntidadAhorroPrevio).orElse(null);
         }else{
             ahorroPrevio = ensamblarEntidadAhorroPrevio(formulario.getAhorroPrevio());
@@ -49,12 +49,7 @@ public class RepositorioFormularioPostgresql implements RepositorioFormulario {
 
     @Override
     public boolean existe(Formulario formulario) {
-        return this.repositorioFormularioJpa.existsById(formulario.getId());
-    }
-
-    @Override
-    public void eliminar(Long id) {
-        this.repositorioFormularioJpa.deleteById(id);
+        return this.repositorioFormularioJpa.existsById(formulario.getDocumentoIdentidadJefeHogar());
     }
 
     @Override
@@ -63,13 +58,13 @@ public class RepositorioFormularioPostgresql implements RepositorioFormulario {
     }
 
     private Formulario ensamblarFormulario(EntidadFormulario formulario){
-        return Formulario.of(ensamblarPersonas(formulario.getPersonas()),formulario.getClasificacionSisben(),
+        return Formulario.of(formulario.getDocumentoIdentidadJefeHogar(),ensamblarPersonas(formulario.getPersonas()),formulario.getClasificacionSisben(),
                 formulario.isPoseeDerechosDePropiedad(),formulario.isAceptoJuramento(),formulario.isAceptoAvisoDePrivacidad(),
                 formulario.getCorreoElectronico(),ensamblarAhorroPrevio(formulario.getAhorroPrevio()));
     }
 
     private AhorroPrevio ensamblarAhorroPrevio(EntidadAhorroPrevio ahorroPrevio){
-        return AhorroPrevio.of(ahorroPrevio.getCuentaAhorroProgramado(), ahorroPrevio.getCesantias(),
+        return AhorroPrevio.of(ahorroPrevio.getDocumentoIdentidadJefeHogar(),ahorroPrevio.getCuentaAhorroProgramado(), ahorroPrevio.getCesantias(),
                 ahorroPrevio.getSubsidioCajaCompesacion());
     }
 
@@ -84,7 +79,7 @@ public class RepositorioFormularioPostgresql implements RepositorioFormulario {
     }
 
     private EntidadFormulario ensamblarEntidadFormulario(Formulario formulario, EntidadAhorroPrevio ahorroPrevio){
-        return new EntidadFormulario(ensamblarEntidadPersonas(formulario.getPersonas()),formulario.getClasificacionSisben(),
+        return new EntidadFormulario(formulario.getDocumentoIdentidadJefeHogar(),ensamblarEntidadPersonas(formulario.getPersonas()),formulario.getClasificacionSisben(),
                 formulario.isPoseeDerechosDePropiedad(),formulario.isAceptoJuramento(),formulario.isAceptoAvisoDePrivacidad(),
                 formulario.getCorreoElectronico(),ahorroPrevio);
     }
@@ -96,12 +91,12 @@ public class RepositorioFormularioPostgresql implements RepositorioFormulario {
     }
 
     private EntidadAhorroPrevio ensamblarEntidadAhorroPrevio(AhorroPrevio ahorroPrevio){
-        return new EntidadAhorroPrevio(ahorroPrevio.getCuentaAhorroProgramado(),ahorroPrevio.getCesantias(),
+        return new EntidadAhorroPrevio(ahorroPrevio.getDocumentoIdentidadJefeHogar(),ahorroPrevio.getCuentaAhorroProgramado(),ahorroPrevio.getCesantias(),
                 ahorroPrevio.getSubsidioCajaCompesacion());
     }
 
     private EntidadAhorroPrevio ensamblarEntidadAhorroPrevio(EntidadAhorroPrevio ahorroPrevio){
-        return new EntidadAhorroPrevio(ahorroPrevio.getCuentaAhorroProgramado(),ahorroPrevio.getCesantias(),
+        return new EntidadAhorroPrevio(ahorroPrevio.getDocumentoIdentidadJefeHogar(),ahorroPrevio.getCuentaAhorroProgramado(),ahorroPrevio.getCesantias(),
                 ahorroPrevio.getSubsidioCajaCompesacion());
     }
 

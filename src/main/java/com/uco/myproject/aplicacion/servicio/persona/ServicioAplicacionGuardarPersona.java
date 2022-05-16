@@ -4,12 +4,12 @@ import com.uco.myproject.aplicacion.dto.DtoPersona;
 import com.uco.myproject.aplicacion.dto.DtoRespuesta;
 import com.uco.myproject.dominio.modelo.Persona;
 import com.uco.myproject.dominio.servicio.persona.ServicioGuardarPersona;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-@Service
+@Component
 public class ServicioAplicacionGuardarPersona {
 
     private final ServicioGuardarPersona servicioGuardarPersona;
@@ -26,6 +26,6 @@ public class ServicioAplicacionGuardarPersona {
         Persona persona = Persona.of(dto.getDocumentoIdentidad(),dto.getPrimerNombre(),dto.getSegundoNombre(),dto.getPrimerApellido(),
                 dto.getSegundoApellido(),fechaNacimiento,dto.getIngresoMensual());
 
-        return new DtoRespuesta<>(servicioGuardarPersona.ejecutar(persona));
+        return new DtoRespuesta<Long>((long) servicioGuardarPersona.ejecutar(persona));
     }
 }

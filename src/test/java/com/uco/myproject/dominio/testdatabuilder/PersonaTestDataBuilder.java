@@ -3,7 +3,6 @@ package com.uco.myproject.dominio.testdatabuilder;
 import com.uco.myproject.dominio.modelo.Persona;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class PersonaTestDataBuilder {
 

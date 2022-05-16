@@ -3,6 +3,7 @@ package com.uco.myproject.dominio.validarobligatorio;
 public class ValidarTexto {
 
     public ValidarTexto() {
+        // TODO document why this constructor is empty
     }
 
     public static void validarObligatorioTexto(String texto, String mensaje) {
@@ -12,16 +13,10 @@ public class ValidarTexto {
     }
 
     private static boolean textoEsNulo(String texto){
-        if (texto == null){
-            return true;
-        }
-        return false;
+        return texto == null;
     }
 
     private static boolean textoEsEspacios(String texto){
-        if(texto.isBlank()){
-            return true;
-        }
-        return false;
+        return texto.isBlank();
     }
 }

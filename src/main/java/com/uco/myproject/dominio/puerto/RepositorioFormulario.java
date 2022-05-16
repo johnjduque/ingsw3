@@ -10,6 +10,5 @@ public interface RepositorioFormulario {
     Formulario consultarPorId(Long id);
     void guardar(Formulario formulario);
     boolean existe(Formulario formulario);
-    void eliminar(Long id);
     void actualizar(Long id, Formulario formulario);
 }

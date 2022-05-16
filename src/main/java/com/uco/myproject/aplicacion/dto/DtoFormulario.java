@@ -9,6 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 public class DtoFormulario {
 
+    private Long documentoIdentidadJefeHogar;
     private List<DtoPersona> personas;
     private String clasificacionSisben;
     private boolean poseeDerechosDePropiedad;
@@ -43,5 +44,9 @@ public class DtoFormulario {
 
     public DtoAhorroPrevio getAhorroPrevio() {
         return ahorroPrevio;
+    }
+
+    public Long getDocumentoIdentidadJefeHogar() {
+        return documentoIdentidadJefeHogar;
     }
 }

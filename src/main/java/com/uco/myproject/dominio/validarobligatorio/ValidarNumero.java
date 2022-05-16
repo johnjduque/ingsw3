@@ -3,6 +3,7 @@ package com.uco.myproject.dominio.validarobligatorio;
 public class ValidarNumero {
 
     public ValidarNumero() {
+        // TODO document why this constructor is empty
     }
 
     public static void validarObligatorioNumero(float valor, String mensaje) {
@@ -15,17 +16,11 @@ public class ValidarNumero {
     }
 
     private static boolean validarNumeroNulo(float valor) {
-        if (esNulo(valor)) {
-            return true;
-        }
-        return false;
+        return esNulo(valor);
     }
 
     private static boolean validarNumeroMenorQueCero(float valor){
-        if (valor < 0){
-            return true;
-        }
-        return false;
+        return valor < 0;
     }
 
     private static <T> boolean esNulo(T objeto){

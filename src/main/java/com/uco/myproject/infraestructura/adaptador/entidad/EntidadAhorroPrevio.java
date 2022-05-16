@@ -7,14 +7,14 @@ import javax.persistence.*;
 public class EntidadAhorroPrevio {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private Long documentoIdentidadJefeHogar;
 
     private float cuentaAhorroProgramado;
     private float cesantias;
     private float subsidioCajaCompesacion;
 
-    public EntidadAhorroPrevio(float cuentaAhorroProgramado, float cesantias, float subsidioCajaCompesacion) {
+    public EntidadAhorroPrevio(Long documentoIdentidadJefeHogar,float cuentaAhorroProgramado, float cesantias, float subsidioCajaCompesacion) {
+        this.documentoIdentidadJefeHogar = documentoIdentidadJefeHogar;
         this.cuentaAhorroProgramado = cuentaAhorroProgramado;
         this.cesantias = cesantias;
         this.subsidioCajaCompesacion = subsidioCajaCompesacion;
@@ -22,14 +22,6 @@ public class EntidadAhorroPrevio {
 
     public EntidadAhorroPrevio() {
 
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public float getCuentaAhorroProgramado() {
@@ -54,5 +46,13 @@ public class EntidadAhorroPrevio {
 
     public void setSubsidioCajaCompesacion(float subsidioCajaCompesacion) {
         this.subsidioCajaCompesacion = subsidioCajaCompesacion;
+    }
+
+    public Long getDocumentoIdentidadJefeHogar() {
+        return documentoIdentidadJefeHogar;
+    }
+
+    public void setDocumentoIdentidadJefeHogar(Long documentoIdentidadJefeHogar) {
+        this.documentoIdentidadJefeHogar = documentoIdentidadJefeHogar;
     }
 }

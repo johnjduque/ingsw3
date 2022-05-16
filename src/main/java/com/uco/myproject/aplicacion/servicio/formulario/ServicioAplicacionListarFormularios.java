@@ -2,11 +2,11 @@ package com.uco.myproject.aplicacion.servicio.formulario;
 
 import com.uco.myproject.dominio.modelo.Formulario;
 import com.uco.myproject.dominio.puerto.RepositorioFormulario;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Service
+@Component
 public class ServicioAplicacionListarFormularios {
 
     private final RepositorioFormulario repositorioFormulario;

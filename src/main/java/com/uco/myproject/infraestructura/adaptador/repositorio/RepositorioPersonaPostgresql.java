@@ -38,17 +38,22 @@ public class RepositorioPersonaPostgresql implements RepositorioPersona {
     }
 
     @Override
-    public Long guardar(Persona persona) {
-        EntidadPersona entidadPersona = new EntidadPersona(persona.getDocumentoIdentidad(),persona.getPrimerNombre(),
-                persona.getSegundoNombre(),persona.getPrimerApellido(),persona.getSegundoApellido(),
-                persona.getFechaNacimiento(),persona.getIngresoMensual());
+    public int guardar(Persona persona) {
+        if((consultarPorId(persona.getDocumentoIdentidad())).equals(persona.getDocumentoIdentidad())){
+            throw new IllegalArgumentException("La Persona ya se encuentra registrada");
+        }
+        else{
+            EntidadPersona entidadPersona = new EntidadPersona(persona.getDocumentoIdentidad(),persona.getPrimerNombre(),
+                    persona.getSegundoNombre(),persona.getPrimerApellido(),persona.getSegundoApellido(),
+                    persona.getFechaNacimiento(),persona.getIngresoMensual());
 
-        return this.repositorioPersonaJpa.save(entidadPersona).getId();
+            return this.repositorioPersonaJpa.save(entidadPersona).getDocumentoIdentidad();
+        }
     }
 
     @Override
     public boolean existe(Persona persona) {
-        return this.repositorioPersonaJpa.findByPrimerNombreAndPrimerApellido(persona.getPrimerNombre(), persona.getPrimerApellido()) != null;
+        return this.repositorioPersonaJpa.existsById((long) persona.getDocumentoIdentidad());
     }
 
     @Override

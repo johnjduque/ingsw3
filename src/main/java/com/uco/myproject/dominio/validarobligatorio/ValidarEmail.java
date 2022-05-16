@@ -5,6 +5,7 @@ public class ValidarEmail {
     private static final String PATRON_EMAIL = "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$";
 
     public ValidarEmail() {
+        // TODO document why this constructor is empty
     }
 
     public static void validarObligatorioEmail (String email, String mensaje){

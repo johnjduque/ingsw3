@@ -8,10 +8,8 @@ import java.time.LocalDate;
 public class EntidadPersona {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
-
     private int documentoIdentidad;
+
     private String primerNombre;
     private String segundoNombre;
     private String primerApellido;
@@ -31,14 +29,6 @@ public class EntidadPersona {
 
     public EntidadPersona() {
 
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public int getDocumentoIdentidad() {

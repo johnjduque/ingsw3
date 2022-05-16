@@ -2,9 +2,9 @@ package com.uco.myproject.aplicacion.servicio.persona;
 
 import com.uco.myproject.aplicacion.dto.DtoRespuesta;
 import com.uco.myproject.dominio.servicio.persona.ServicioEliminarPersona;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class ServicioAplicacionEliminarPersona {
 
     private final ServicioEliminarPersona servicioEliminarPersona;

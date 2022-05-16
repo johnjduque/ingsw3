@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DtoAhorroPrevio {
 
+    private Long documentoIdentidadJefeHogar;
     private float cuentaAhorroProgramado;
     private float cesantias;
     private float subsidioCajaCompesacion;
@@ -21,5 +22,9 @@ public class DtoAhorroPrevio {
 
     public float getSubsidioCajaCompesacion() {
         return subsidioCajaCompesacion;
+    }
+
+    public Long getDocumentoIdentidadJefeHogar() {
+        return documentoIdentidadJefeHogar;
     }
 }

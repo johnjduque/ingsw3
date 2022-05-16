@@ -8,8 +8,7 @@ import java.util.List;
 public class EntidadFormulario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private Long documentoIdentidadJefeHogar;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "persona_id")
@@ -19,14 +18,15 @@ public class EntidadFormulario {
     private boolean aceptoJuramento;
     private boolean aceptoAvisoDePrivacidad;
     private String correoElectronico;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ahorroprevio_id")
     private EntidadAhorroPrevio ahorroPrevio;
 
     public EntidadFormulario() {
     }
 
-    public EntidadFormulario(Long id, List<EntidadPersona> personas, String clasificacionSisben, boolean poseeDerechosDePropiedad, boolean aceptoJuramento, boolean aceptoAvisoDePrivacidad, String correoElectronico, EntidadAhorroPrevio ahorroPrevio) {
+    public EntidadFormulario(Long documentoIdentidadJefeHogar, List<EntidadPersona> personas, String clasificacionSisben, boolean poseeDerechosDePropiedad, boolean aceptoJuramento, boolean aceptoAvisoDePrivacidad, String correoElectronico, EntidadAhorroPrevio ahorroPrevio) {
+        this.documentoIdentidadJefeHogar = documentoIdentidadJefeHogar;
         this.personas = personas;
         this.clasificacionSisben = clasificacionSisben;
         this.poseeDerechosDePropiedad = poseeDerechosDePropiedad;
@@ -34,24 +34,6 @@ public class EntidadFormulario {
         this.aceptoAvisoDePrivacidad = aceptoAvisoDePrivacidad;
         this.correoElectronico = correoElectronico;
         this.ahorroPrevio = ahorroPrevio;
-    }
-
-    public EntidadFormulario(List<EntidadPersona> personas, String clasificacionSisben, boolean poseeDerechosDePropiedad, boolean aceptoJuramento, boolean aceptoAvisoDePrivacidad, String correoElectronico, EntidadAhorroPrevio ahorroPrevio) {
-        this.personas = personas;
-        this.clasificacionSisben = clasificacionSisben;
-        this.poseeDerechosDePropiedad = poseeDerechosDePropiedad;
-        this.aceptoJuramento = aceptoJuramento;
-        this.aceptoAvisoDePrivacidad = aceptoAvisoDePrivacidad;
-        this.correoElectronico = correoElectronico;
-        this.ahorroPrevio = ahorroPrevio;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public List<EntidadPersona> getPersonas() {
@@ -108,5 +90,13 @@ public class EntidadFormulario {
 
     public void setAhorroPrevio(EntidadAhorroPrevio ahorroPrevio) {
         this.ahorroPrevio = ahorroPrevio;
+    }
+
+    public Long getDocumentoIdentidadJefeHogar() {
+        return documentoIdentidadJefeHogar;
+    }
+
+    public void setDocumentoIdentidadJefeHogar(Long documentoIdentidadJefeHogar) {
+        this.documentoIdentidadJefeHogar = documentoIdentidadJefeHogar;
     }
 }

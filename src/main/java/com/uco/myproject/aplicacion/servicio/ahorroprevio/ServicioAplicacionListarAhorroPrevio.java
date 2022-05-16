@@ -2,11 +2,11 @@ package com.uco.myproject.aplicacion.servicio.ahorroprevio;
 
 import com.uco.myproject.dominio.modelo.AhorroPrevio;
 import com.uco.myproject.dominio.puerto.RepositorioAhorroPrevio;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Service
+@Component
 public class ServicioAplicacionListarAhorroPrevio {
 
     private final RepositorioAhorroPrevio repositorioAhorroPrevio;

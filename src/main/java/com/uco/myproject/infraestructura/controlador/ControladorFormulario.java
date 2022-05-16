@@ -3,6 +3,7 @@ package com.uco.myproject.infraestructura.controlador;
 import com.uco.myproject.aplicacion.dto.DtoFormulario;
 import com.uco.myproject.aplicacion.servicio.formulario.ServicioAplicacionGuardarFormulario;
 import com.uco.myproject.aplicacion.servicio.formulario.ServicioAplicacionListarFormularios;
+import com.uco.myproject.aplicacion.servicio.formulario.ServicioAplicacionObtenerFormularioPorCodigo;
 import com.uco.myproject.dominio.modelo.Formulario;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,16 +17,23 @@ public class ControladorFormulario {
 
     private final ServicioAplicacionListarFormularios servicioListarFormulario;
     private final ServicioAplicacionGuardarFormulario servicioGuardarFormulario;
+    private final ServicioAplicacionObtenerFormularioPorCodigo servicioObtenerFormularioPorCodigo;
 
-    public ControladorFormulario(ServicioAplicacionListarFormularios servicioListarFormulario, ServicioAplicacionGuardarFormulario servicioGuardarFormulario) {
+    public ControladorFormulario(ServicioAplicacionListarFormularios servicioListarFormulario, ServicioAplicacionGuardarFormulario servicioGuardarFormulario, ServicioAplicacionObtenerFormularioPorCodigo servicioObtenerFormularioPorCodigo) {
         this.servicioListarFormulario = servicioListarFormulario;
         this.servicioGuardarFormulario = servicioGuardarFormulario;
+        this.servicioObtenerFormularioPorCodigo = servicioObtenerFormularioPorCodigo;
     }
 
     @GetMapping
     public List<Formulario> listar() {
 
         return this.servicioListarFormulario.ejecutar();
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<Formulario> listarPorCodigo(@PathVariable("id") Long id){
+        return ResponseEntity.ok(servicioObtenerFormularioPorCodigo.obtenerPorCodigo(id));
     }
 
     @PostMapping

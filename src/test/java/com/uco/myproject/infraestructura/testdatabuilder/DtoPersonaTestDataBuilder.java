@@ -1,50 +1,59 @@
 package com.uco.myproject.infraestructura.testdatabuilder;
 
-import com.uco.myproject.aplicacion.dto.*;
-import com.uco.myproject.dominio.modelo.*;
-import com.uco.myproject.dominio.testdatabuilder.PersonaTestDataBuilder;
-
-import java.util.Date;
+import com.uco.myproject.aplicacion.dto.DtoPersona;
 
 public class DtoPersonaTestDataBuilder {
 
-    private String codigo;
     private int documentoIdentidad;
     private String primerNombre;
     private String segundoNombre;
     private String primerApellido;
     private String segundoApellido;
-    private Date fechaNacimiento;
+    private String fechaNacimiento;
     private int ingresoMensual;
 
     public DtoPersonaTestDataBuilder() {
-        this.codigo = "1";
-        this.documentoIdentidad = 1036936749;
-        this.primerNombre = "John";
+        this.documentoIdentidad = 1234567890;
+        this.primerNombre = "juan";
         this.segundoNombre = "";
-        this.primerApellido = "Duque";
+        this.primerApellido = "castaño";
         this.segundoApellido = "";
-        this.fechaNacimiento = new Date();
+        this.fechaNacimiento = String.valueOf(1900/04/02);
         this.ingresoMensual = 1000000;
     }
 
-    public DtoPersonaTestDataBuilder conCodigo(String codigo){
-        this.codigo = codigo;
+    public DtoPersonaTestDataBuilder conDcumentoIdentidad(int documentoIdentidad) {
+        this.documentoIdentidad = documentoIdentidad;
         return this;
     }
 
-    public DtoPersonaTestDataBuilder conNombre(String primerNombre){
+    public DtoPersonaTestDataBuilder conPrimerNombre(String primerNombre) {
         this.primerNombre = primerNombre;
         return this;
     }
 
-    public DtoPersonaTestDataBuilder conApellido(String primerApellido){
+    public DtoPersonaTestDataBuilder conSegundoNombre(String segundoNombre) {
+        this.segundoApellido = segundoNombre;
+        return this;
+    }
+
+    public DtoPersonaTestDataBuilder conPrimerApellido(String primerApellido) {
         this.primerApellido = primerApellido;
         return this;
     }
 
-    public DtoPersonaTestDataBuilder conIngresoMensual(int ingresoMensual){
-        this.ingresoMensual = ingresoMensual;
+    public DtoPersonaTestDataBuilder conSegundoApellido(String segundoApellido) {
+        this.segundoApellido = segundoApellido;
         return this;
+    }
+
+    public DtoPersonaTestDataBuilder conIngresoMensual(int ingresoMensual) {
+        this.ingresoMensual =   ingresoMensual;
+        return this;
+    }
+
+    public DtoPersona build() {
+
+        return new DtoPersona(documentoIdentidad,primerNombre,segundoNombre,primerApellido,segundoApellido,fechaNacimiento,ingresoMensual);
     }
 }

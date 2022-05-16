@@ -3,14 +3,11 @@ package com.uco.myproject.dominio.modelo;
 import com.uco.myproject.dominio.validarobligatorio.ValidarNumero;
 import com.uco.myproject.dominio.validarobligatorio.ValidarObjeto;
 import com.uco.myproject.dominio.validarobligatorio.ValidarTexto;
-import lombok.AllArgsConstructor;
 
 import java.time.LocalDate;
 
-@AllArgsConstructor
 public class Persona {
 
-    private Long id;
     private int documentoIdentidad;
     private String primerNombre;
     private String segundoNombre;
@@ -37,10 +34,6 @@ public class Persona {
         this.segundoApellido = segundoApellido;
         this.fechaNacimiento = fechaNacimiento;
         this.ingresoMensual = ingresoMensual;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public int getDocumentoIdentidad() {
