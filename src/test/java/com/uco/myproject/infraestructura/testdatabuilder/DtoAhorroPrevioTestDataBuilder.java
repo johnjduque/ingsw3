@@ -1,4 +1,4 @@
-package com.uco.myproject.infraestructura.testdatabuilder;
+/*package com.uco.myproject.infraestructura.testdatabuilder;
 
 import com.uco.myproject.aplicacion.dto.DtoAhorroPrevio;
 
@@ -40,5 +40,5 @@ public class DtoAhorroPrevioTestDataBuilder {
         return new DtoAhorroPrevio(documentoIdentidadJefeHogar,
             cuentaAhorroProgramado,cesantias,subsidioCajaCompesacion);
     }
-}
+}*/
 

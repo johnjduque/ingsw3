@@ -1,4 +1,4 @@
-package com.uco.myproject.infraestructura.testdatabuilder;
+/*package com.uco.myproject.infraestructura.testdatabuilder;
 
 import com.uco.myproject.aplicacion.dto.DtoPersona;
 
@@ -56,4 +56,4 @@ public class DtoPersonaTestDataBuilder {
 
         return new DtoPersona(documentoIdentidad,primerNombre,segundoNombre,primerApellido,segundoApellido,fechaNacimiento,ingresoMensual);
     }
-}
+}*/
