@@ -1,4 +1,4 @@
-package com.uco.myproject.infraestructura.controlador;
+/*package com.uco.myproject.infraestructura.controlador;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.uco.myproject.aplicacion.dto.DtoPersona;
@@ -120,4 +120,4 @@ public class ControladorPersonaTest {
                 .andExpect(jsonPath("$[0].fechanacimiento", is(dto.getFechaNacimiento())))
                 .andExpect(jsonPath("$[0].ingresomensual", is(dto.getIngresoMensual())));
     }
-}
+}*/

@@ -1,4 +1,4 @@
-/*package com.uco.myproject.aplicacion.servicio.formulario;
+package com.uco.myproject.aplicacion.servicio.formulario;
 
 import com.uco.myproject.aplicacion.dto.DtoAhorroPrevio;
 import com.uco.myproject.aplicacion.dto.DtoFormulario;
@@ -47,4 +47,4 @@ public class ServicioAplicacionGuardarFormulario {
         return Persona.of(persona.getDocumentoIdentidad(),persona.getPrimerNombre(),persona.getSegundoNombre(),
                 persona.getPrimerApellido(),persona.getSegundoApellido(),fechaNacimiento,persona.getIngresoMensual());
     }
-}*/
+}
