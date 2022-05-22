@@ -27,10 +27,10 @@ public class RepositorioPersonaPostgresql implements RepositorioPersona {
     }
 
     @Override
-    public Persona consultarPorId(int documentoIdentidad) {
+    public Persona consultarPorId(Long documentoIdentidad) {
 
         return this.repositorioPersonaJpa
-                .findById((long) documentoIdentidad)
+                .findById(documentoIdentidad)
                 .map(entidad -> Persona.of(entidad.getDocumentoIdentidad(),entidad.getPrimerNombre(),
                         entidad.getSegundoNombre(),entidad.getPrimerApellido(),entidad.getSegundoApellido(),
                         entidad.getFechaNacimiento(),entidad.getIngresoMensual()))
@@ -38,17 +38,12 @@ public class RepositorioPersonaPostgresql implements RepositorioPersona {
     }
 
     @Override
-    public int guardar(Persona persona) {
-        if((consultarPorId(persona.getDocumentoIdentidad())).equals(persona.getDocumentoIdentidad())){
-            throw new IllegalArgumentException("La Persona ya se encuentra registrada");
-        }
-        else{
-            EntidadPersona entidadPersona = new EntidadPersona(persona.getDocumentoIdentidad(),persona.getPrimerNombre(),
-                    persona.getSegundoNombre(),persona.getPrimerApellido(),persona.getSegundoApellido(),
-                    persona.getFechaNacimiento(),persona.getIngresoMensual());
+    public Long guardar(Persona persona) {
+        EntidadPersona entidadPersona = new EntidadPersona(persona.getDocumentoIdentidad(),persona.getPrimerNombre(),
+                persona.getSegundoNombre(),persona.getPrimerApellido(),persona.getSegundoApellido(),
+                persona.getFechaNacimiento(),persona.getIngresoMensual());
 
-            return this.repositorioPersonaJpa.save(entidadPersona).getDocumentoIdentidad();
-        }
+        return this.repositorioPersonaJpa.save(entidadPersona).getDocumentoIdentidad();
     }
 
     @Override
@@ -57,19 +52,21 @@ public class RepositorioPersonaPostgresql implements RepositorioPersona {
     }
 
     @Override
-    public boolean eliminar(int documentoIdentidad) {
+    public boolean eliminar(Long documentoIdentidad) {
         this.repositorioPersonaJpa.deleteById((long) documentoIdentidad);
         return true;
     }
 
     @Override
-    public boolean actualizar(int documentoIdentidad, Persona persona) {
-        repositorioPersonaJpa.findById((long) documentoIdentidad);
+    public boolean actualizar(Long documentoIdentidad, Persona persona) {
+        repositorioPersonaJpa.findById(documentoIdentidad);
         EntidadPersona entidadPersona = new EntidadPersona();
+        entidadPersona.setDocumentoIdentidad(documentoIdentidad);
         entidadPersona.setPrimerNombre(persona.getPrimerNombre());
         entidadPersona.setSegundoNombre(persona.getSegundoNombre());
         entidadPersona.setPrimerApellido(persona.getPrimerApellido());
         entidadPersona.setSegundoApellido(persona.getSegundoApellido());
+        entidadPersona.setFechaNacimiento(consultarPorId(documentoIdentidad).getFechaNacimiento());
         entidadPersona.setIngresoMensual(persona.getIngresoMensual());
         repositorioPersonaJpa.save(entidadPersona);
         return true;

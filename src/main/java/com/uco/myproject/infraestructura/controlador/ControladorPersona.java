@@ -28,7 +28,7 @@ public class ControladorPersona {
     }
 
     @DeleteMapping(value = "/{documentoIdentidad}")
-    public DtoRespuesta<Boolean> eliminar(@PathVariable int documentoIdentidad) {
+    public DtoRespuesta<Boolean> eliminar(@PathVariable Long documentoIdentidad) {
         return this.servicioEliminarPersona.ejecutar(documentoIdentidad);
     }
     @PostMapping
@@ -43,7 +43,7 @@ public class ControladorPersona {
     }
 
     @PutMapping(value = "/{documentoIdentidad}")
-    public DtoRespuesta<Boolean> actualizar(@PathVariable int documentoIdentidad,@RequestBody DtoPersona dtoPersona){
+    public DtoRespuesta<Boolean> actualizar(@PathVariable Long documentoIdentidad,@RequestBody DtoPersona dtoPersona){
         return  this.servicioActualizarPersona.ejecutar(documentoIdentidad,dtoPersona);
     }
 }

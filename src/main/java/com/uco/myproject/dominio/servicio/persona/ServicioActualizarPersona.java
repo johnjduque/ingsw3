@@ -16,7 +16,7 @@ public class ServicioActualizarPersona {
         this.repositorioPersona = repositorioPersona;
     }
 
-    public Boolean ejecutar(int documentoIdentidad, Persona persona){
+    public Boolean ejecutar(Long documentoIdentidad, Persona persona){
         if(repositorioPersona.consultarPorId(documentoIdentidad) != null){
             return repositorioPersona.actualizar(documentoIdentidad, persona);
         }else

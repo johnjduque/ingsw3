@@ -13,7 +13,7 @@ class PersonaTest {
         //patron 3a
 
         //arrange (prepara todos los datos para la prueba)
-        int documentoIdentidad = 1234567890;
+        Long documentoIdentidad = 1234567890L;
         String primerNombre = "juan";
         String segundoNombre = "";
         String primerApellido = "castaño";
@@ -26,7 +26,7 @@ class PersonaTest {
 
         //assert se valida el resultado
 
-        Assertions.assertEquals(1234567890,persona.getDocumentoIdentidad());
+        Assertions.assertEquals(1234567890L,persona.getDocumentoIdentidad());
         Assertions.assertEquals("juan",persona.getPrimerNombre());
         Assertions.assertEquals("",persona.getSegundoNombre());
         Assertions.assertEquals("castaño",persona.getPrimerApellido());
@@ -40,7 +40,7 @@ class PersonaTest {
         //patron 3a
 
         //arrange (prepara todos los datos para la prueba)
-        int documentoIdentidad = 1234567890;
+        Long documentoIdentidad = 1234567890L;
         String primerNombre = null;
         String segundoNombre = "";
         String primerApellido = "castaño";
@@ -60,7 +60,7 @@ class PersonaTest {
         //patron 3a
 
         //arrange (prepara todos los datos para la prueba)
-        int documentoIdentidad = 1234567890;
+        Long documentoIdentidad = 1234567890L;
         String primerNombre = "";
         String segundoNombre = "";
         String primerApellido = "castaño";
@@ -80,7 +80,7 @@ class PersonaTest {
         //patron 3a
 
         //arrange (prepara todos los datos para la prueba)
-        int documentoIdentidad = 1234567890;
+        Long documentoIdentidad = 1234567890L;
         String primerNombre = "John";
         String segundoNombre = "";
         String primerApellido = "castaño";

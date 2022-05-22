@@ -19,7 +19,7 @@ class ServicioGuardarPersonaTest {
         var servicio = new ServicioGuardarPersona(repositorio);
 
 
-        Mockito.when(repositorio.guardar(Mockito.any(Persona.class))).thenReturn(Math.toIntExact(1234567890L));
+        Mockito.when(repositorio.guardar(Mockito.any(Persona.class))).thenReturn((long) Math.toIntExact(1234567890L));
 
         // act
         var id = servicio.ejecutar(persona);

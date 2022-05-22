@@ -14,7 +14,7 @@ public class ServicioEliminarPersona {
         this.repositorioPersona = repositorioPersona;
     }
 
-    public boolean ejecutar(int documentoIdentidad) {
+    public boolean ejecutar(Long documentoIdentidad) {
         if(repositorioPersona.consultarPorId(documentoIdentidad) != null){
             return this.repositorioPersona.eliminar(documentoIdentidad);
         }else

@@ -16,8 +16,8 @@ public class ServicioAplicacionObtenerFormularioPorCodigo {
     public Formulario obtenerPorCodigo(Long id){
         Formulario formulario = this.servicioObtenerFormularioPorCodigo.obtenerPorCodigo(id);
 
-        return new Formulario(formulario.getDocumentoIdentidadJefeHogar(),formulario.getPersonas(),formulario.getClasificacionSisben(),
+        return new Formulario(formulario.getDocumentoIdentidadJefeHogar(),formulario.getClasificacionSisben(),
                 formulario.isPoseeDerechosDePropiedad(),formulario.isAceptoJuramento(),formulario.isAceptoAvisoDePrivacidad(),
-                formulario.getCorreoElectronico(),formulario.getAhorroPrevio());
+                formulario.getCorreoElectronico());
     }
 }

@@ -4,10 +4,12 @@ import com.uco.myproject.aplicacion.dto.DtoPersona;
 import com.uco.myproject.aplicacion.dto.DtoRespuesta;
 import com.uco.myproject.dominio.modelo.Persona;
 import com.uco.myproject.dominio.servicio.persona.ServicioActualizarPersona;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+@Component
 public class ServicioAplicacionActualizarPersona {
 
     private final ServicioActualizarPersona servicioActualizarPersona;
@@ -16,7 +18,7 @@ public class ServicioAplicacionActualizarPersona {
         this.servicioActualizarPersona = servicioActualizarPersona;
     }
 
-    public DtoRespuesta<Boolean> ejecutar(int documentoIdentidad, DtoPersona dtoPersona){
+    public DtoRespuesta<Boolean> ejecutar(Long documentoIdentidad, DtoPersona dtoPersona){
         DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate fechaNacimiento = LocalDate.parse(dtoPersona.getFechaNacimiento(), format);
 

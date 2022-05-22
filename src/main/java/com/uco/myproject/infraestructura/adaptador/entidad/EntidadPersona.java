@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class EntidadPersona {
 
     @Id
-    private int documentoIdentidad;
+    private Long documentoIdentidad;
 
     private String primerNombre;
     private String segundoNombre;
@@ -17,7 +17,7 @@ public class EntidadPersona {
     private LocalDate fechaNacimiento;
     private int ingresoMensual;
 
-    public EntidadPersona(int documentoIdentidad, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, LocalDate fechaNacimiento, int ingresoMensual) {
+    public EntidadPersona(Long documentoIdentidad, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, LocalDate fechaNacimiento, int ingresoMensual) {
         this.documentoIdentidad = documentoIdentidad;
         this.primerNombre = primerNombre;
         this.segundoNombre = segundoNombre;
@@ -31,11 +31,11 @@ public class EntidadPersona {
 
     }
 
-    public int getDocumentoIdentidad() {
+    public Long getDocumentoIdentidad() {
         return documentoIdentidad;
     }
 
-    public void setDocumentoIdentidad(int documentoIdentidad) {
+    public void setDocumentoIdentidad(Long documentoIdentidad) {
         this.documentoIdentidad = documentoIdentidad;
     }
 

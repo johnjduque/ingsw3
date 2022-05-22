@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 public class PersonaTestDataBuilder {
 
-    private int documentoIdentidad;
+    private Long documentoIdentidad;
     private String primerNombre;
     private String segundoNombre;
     private String primerApellido;
@@ -15,7 +15,7 @@ public class PersonaTestDataBuilder {
     private int ingresoMensual;
 
     public PersonaTestDataBuilder() {
-        this.documentoIdentidad = 1234567890;
+        this.documentoIdentidad = 1234567890L;
         this.primerNombre = "juan";
         this.segundoNombre = "";
         this.primerApellido = "castaño";
@@ -24,7 +24,7 @@ public class PersonaTestDataBuilder {
         this.ingresoMensual = 1000000;
     }
 
-    public PersonaTestDataBuilder conDcumentoIdentidad(int documentoIdentidad) {
+    public PersonaTestDataBuilder conDcumentoIdentidad(Long documentoIdentidad) {
         this.documentoIdentidad = documentoIdentidad;
         return this;
     }

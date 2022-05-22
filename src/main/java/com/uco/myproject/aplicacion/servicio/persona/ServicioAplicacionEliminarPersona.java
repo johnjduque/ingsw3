@@ -13,7 +13,7 @@ public class ServicioAplicacionEliminarPersona {
         this.servicioEliminarPersona = servicioEliminarPersona;
     }
 
-    public DtoRespuesta<Boolean> ejecutar(int documentoIdentidad) {
+    public DtoRespuesta<Boolean> ejecutar(Long documentoIdentidad) {
         return new DtoRespuesta<>(this.servicioEliminarPersona.ejecutar(documentoIdentidad));
     }
 }

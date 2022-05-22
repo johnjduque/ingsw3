@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DtoPersona {
 
-    private int documentoIdentidad;
+    private Long documentoIdentidad;
     private String primerNombre;
     private String segundoNombre;
     private String primerApellido;
@@ -15,7 +15,7 @@ public class DtoPersona {
     private String fechaNacimiento;
     private int ingresoMensual;
 
-    public int getDocumentoIdentidad() {
+    public Long getDocumentoIdentidad() {
         return documentoIdentidad;
     }
 

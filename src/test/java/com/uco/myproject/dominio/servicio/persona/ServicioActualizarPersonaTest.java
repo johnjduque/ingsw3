@@ -20,6 +20,6 @@ class ServicioActualizarPersonaTest {
 
         Assertions.assertEquals("La persona no se puede actualizar, no se encuentra en el sistema",
                 Assertions.assertThrows(IllegalStateException.class,
-            () -> servicio.ejecutar(1, persona)).getMessage());
+            () -> servicio.ejecutar(1L, persona)).getMessage());
     }
 }

@@ -36,15 +36,7 @@ public class RepositorioFormularioPostgresql implements RepositorioFormulario {
 
     @Override
     public void guardar(Formulario formulario) {
-        EntidadAhorroPrevio ahorroPrevio;
-        if(formulario.getAhorroPrevio().getDocumentoIdentidadJefeHogar() != null){
-            ahorroPrevio = this.repositorioAhorroPrevioJpa.findById(formulario.getAhorroPrevio().getDocumentoIdentidadJefeHogar()).map(
-                    this::ensamblarEntidadAhorroPrevio).orElse(null);
-        }else{
-            ahorroPrevio = ensamblarEntidadAhorroPrevio(formulario.getAhorroPrevio());
-        }
-
-        this.repositorioFormularioJpa.save(ensamblarEntidadFormulario(formulario,ahorroPrevio));
+        this.repositorioFormularioJpa.save(ensamblarEntidadFormulario(formulario));
     }
 
     @Override
@@ -52,61 +44,15 @@ public class RepositorioFormularioPostgresql implements RepositorioFormulario {
         return this.repositorioFormularioJpa.existsById(formulario.getDocumentoIdentidadJefeHogar());
     }
 
-    @Override
-    public void actualizar(Long id, Formulario formulario) {
-        this.repositorioFormularioJpa.save(ensamblarEntidadFormulario(id,formulario));
-    }
-
     private Formulario ensamblarFormulario(EntidadFormulario formulario){
-        return Formulario.of(formulario.getDocumentoIdentidadJefeHogar(),ensamblarPersonas(formulario.getPersonas()),formulario.getClasificacionSisben(),
+        return Formulario.of(formulario.getDocumentoIdentidadJefeHogar(),formulario.getClasificacionSisben(),
                 formulario.isPoseeDerechosDePropiedad(),formulario.isAceptoJuramento(),formulario.isAceptoAvisoDePrivacidad(),
-                formulario.getCorreoElectronico(),ensamblarAhorroPrevio(formulario.getAhorroPrevio()));
+                formulario.getCorreoElectronico());
     }
 
-    private AhorroPrevio ensamblarAhorroPrevio(EntidadAhorroPrevio ahorroPrevio){
-        return AhorroPrevio.of(ahorroPrevio.getDocumentoIdentidadJefeHogar(),ahorroPrevio.getCuentaAhorroProgramado(), ahorroPrevio.getCesantias(),
-                ahorroPrevio.getSubsidioCajaCompesacion());
-    }
-
-    private List<Persona> ensamblarPersonas(List<EntidadPersona> personas){
-        return personas.stream().map(this::ensamblarPersona).toList();
-    }
-
-    private Persona ensamblarPersona(EntidadPersona persona){
-        return Persona.of(persona.getDocumentoIdentidad(),persona.getPrimerNombre(),persona.getSegundoNombre(),
-                persona.getPrimerApellido(),persona.getSegundoApellido(),persona.getFechaNacimiento(),
-                persona.getIngresoMensual());
-    }
-
-    private EntidadFormulario ensamblarEntidadFormulario(Formulario formulario, EntidadAhorroPrevio ahorroPrevio){
-        return new EntidadFormulario(formulario.getDocumentoIdentidadJefeHogar(),ensamblarEntidadPersonas(formulario.getPersonas()),formulario.getClasificacionSisben(),
+    private EntidadFormulario ensamblarEntidadFormulario(Formulario formulario){
+        return new EntidadFormulario(formulario.getDocumentoIdentidadJefeHogar(),formulario.getClasificacionSisben(),
                 formulario.isPoseeDerechosDePropiedad(),formulario.isAceptoJuramento(),formulario.isAceptoAvisoDePrivacidad(),
-                formulario.getCorreoElectronico(),ahorroPrevio);
-    }
-
-    private EntidadFormulario ensamblarEntidadFormulario(Long id, Formulario formulario){
-        return new EntidadFormulario(id,ensamblarEntidadPersonas(formulario.getPersonas()),formulario.getClasificacionSisben(),
-                formulario.isPoseeDerechosDePropiedad(),formulario.isAceptoJuramento(),formulario.isAceptoAvisoDePrivacidad(),
-                formulario.getCorreoElectronico(),ensamblarEntidadAhorroPrevio(formulario.getAhorroPrevio()));
-    }
-
-    private EntidadAhorroPrevio ensamblarEntidadAhorroPrevio(AhorroPrevio ahorroPrevio){
-        return new EntidadAhorroPrevio(ahorroPrevio.getDocumentoIdentidadJefeHogar(),ahorroPrevio.getCuentaAhorroProgramado(),ahorroPrevio.getCesantias(),
-                ahorroPrevio.getSubsidioCajaCompesacion());
-    }
-
-    private EntidadAhorroPrevio ensamblarEntidadAhorroPrevio(EntidadAhorroPrevio ahorroPrevio){
-        return new EntidadAhorroPrevio(ahorroPrevio.getDocumentoIdentidadJefeHogar(),ahorroPrevio.getCuentaAhorroProgramado(),ahorroPrevio.getCesantias(),
-                ahorroPrevio.getSubsidioCajaCompesacion());
-    }
-
-    private List<EntidadPersona> ensamblarEntidadPersonas(List<Persona> personas){
-        return personas.stream().map(this::ensamblarEntidadPersona).toList();
-    }
-
-    private EntidadPersona ensamblarEntidadPersona(Persona persona){
-        return new EntidadPersona(persona.getDocumentoIdentidad(),persona.getPrimerNombre(),persona.getSegundoNombre(),
-                persona.getPrimerApellido(),persona.getSegundoApellido(),persona.getFechaNacimiento(),
-                persona.getIngresoMensual());
+                formulario.getCorreoElectronico());
     }
 }

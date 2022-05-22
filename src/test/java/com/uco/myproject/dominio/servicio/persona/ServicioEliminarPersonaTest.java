@@ -18,6 +18,6 @@ class ServicioEliminarPersonaTest {
         Mockito.when(!repositorio.existe(Mockito.any())).thenReturn(true);
 
         Assertions.assertEquals("La persona que intenta eliminar no está registrada", Assertions.assertThrows(IllegalStateException.class,
-                () -> servicio.ejecutar(1)).getMessage());
+                () -> servicio.ejecutar(1L)).getMessage());
     }
 }

@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 public class Persona {
 
-    private int documentoIdentidad;
+    private Long documentoIdentidad;
     private String primerNombre;
     private String segundoNombre;
     private String primerApellido;
@@ -16,7 +16,7 @@ public class Persona {
     private LocalDate fechaNacimiento;
     private int ingresoMensual;
 
-    public static Persona of(int documentoIdentidad, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, LocalDate fechaNacimiento, int ingresoMensual) {
+    public static Persona of(Long documentoIdentidad, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, LocalDate fechaNacimiento, int ingresoMensual) {
         ValidarNumero.validarObligatorioNumero(documentoIdentidad,"El documento de identidad no puede ser vacío o menor a cero");
         ValidarTexto.validarObligatorioTexto(primerNombre, "El primer nombre no puede ser vacio");
         ValidarTexto.validarObligatorioTexto(primerApellido, "El primer apellido no puede ser vacio");
@@ -26,7 +26,7 @@ public class Persona {
         return new Persona(documentoIdentidad,primerNombre,segundoNombre,primerApellido,segundoApellido,fechaNacimiento,ingresoMensual);
     }
 
-    public Persona(int documentoIdentidad, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, LocalDate fechaNacimiento, int ingresoMensual) {
+    public Persona(Long documentoIdentidad, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, LocalDate fechaNacimiento, int ingresoMensual) {
         this.documentoIdentidad = documentoIdentidad;
         this.primerNombre = primerNombre;
         this.segundoNombre = segundoNombre;
@@ -36,7 +36,7 @@ public class Persona {
         this.ingresoMensual = ingresoMensual;
     }
 
-    public int getDocumentoIdentidad() {
+    public Long getDocumentoIdentidad() {
         return documentoIdentidad;
     }
 
