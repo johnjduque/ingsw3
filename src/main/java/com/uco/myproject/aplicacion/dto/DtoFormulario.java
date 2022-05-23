@@ -1,9 +1,7 @@
 package com.uco.myproject.aplicacion.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
 @NoArgsConstructor
 public class DtoFormulario {
 
@@ -13,6 +11,15 @@ public class DtoFormulario {
     private boolean aceptoJuramento;
     private boolean aceptoAvisoDePrivacidad;
     private String correoElectronico;
+
+    public DtoFormulario(Long documentoIdentidadJefeHogar, String clasificacionSisben, boolean poseeDerechosDePropiedad, boolean aceptoJuramento, boolean aceptoAvisoDePrivacidad, String correoElectronico) {
+        this.documentoIdentidadJefeHogar = documentoIdentidadJefeHogar;
+        this.clasificacionSisben = clasificacionSisben;
+        this.poseeDerechosDePropiedad = poseeDerechosDePropiedad;
+        this.aceptoJuramento = aceptoJuramento;
+        this.aceptoAvisoDePrivacidad = aceptoAvisoDePrivacidad;
+        this.correoElectronico = correoElectronico;
+    }
 
     public String getClasificacionSisben() {
         return clasificacionSisben;

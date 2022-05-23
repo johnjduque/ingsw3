@@ -1,10 +1,12 @@
 /*package com.uco.myproject.infraestructura.controlador;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.uco.myproject.aplicacion.dto.DtoLogin;
 import com.uco.myproject.aplicacion.dto.DtoPersona;
 import com.uco.myproject.aplicacion.dto.DtoRespuesta;
 import com.uco.myproject.dominio.puerto.RepositorioPersona;
 import com.uco.myproject.infraestructura.ApplicationMock;
+import com.uco.myproject.infraestructura.testdatabuilder.DtoLoginTestDataBuilder;
 import com.uco.myproject.infraestructura.testdatabuilder.DtoPersonaTestDataBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -51,11 +53,14 @@ public class ControladorPersonaTest {
         // arrange
         var dto = new DtoPersonaTestDataBuilder().build();
 
-        crear(dto);
+        String token = obtenerToken();
+
+        crear(dto, token);
 
         // act - assert
         mocMvc.perform(MockMvcRequestBuilders.post("/api/personas")
                         .contentType(MediaType.APPLICATION_JSON)
+                        .header("Authorization",token)
                         .content(objectMapper.writeValueAsString(dto))
                 )
                 .andExpect(status().isConflict());
@@ -68,10 +73,12 @@ public class ControladorPersonaTest {
 
         var dto = new DtoPersonaTestDataBuilder().build();
 
-        crear(dto);
+        String token = obtenerToken();
+
+        crear(dto, token);
     }
 
-    private void crear(DtoPersona dto) throws Exception {
+    private void crear(DtoPersona dto, String token) throws Exception {
 
         // arrange
 
@@ -79,6 +86,7 @@ public class ControladorPersonaTest {
         var result = mocMvc.perform(MockMvcRequestBuilders.post("/api/personas")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(dto))
+                        .header("Authorization",token)
                 )
                 .andExpect(status().isOk())
                 .andReturn();
@@ -90,7 +98,7 @@ public class ControladorPersonaTest {
         Long id = respuesta.getValor().longValue();
         Assertions.assertNotNull(id);
 
-        var persona = repositorioPersona.consultarPorId(Math.toIntExact(id));
+        var persona = repositorioPersona.consultarPorId(id);
 
         Assertions.assertEquals(dto.getDocumentoIdentidad(), persona.getDocumentoIdentidad());
         Assertions.assertEquals(dto.getPrimerNombre(), persona.getPrimerNombre());
@@ -107,10 +115,13 @@ public class ControladorPersonaTest {
 
         var dto = new DtoPersonaTestDataBuilder().build();
 
-        crear(dto);
+        String token = obtenerToken();
+
+        crear(dto, token);
 
         mocMvc.perform(get("/api/personas")
-                        .contentType(MediaType.APPLICATION_JSON))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .header("Authorization",token))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].documentoidentidad", is(dto.getDocumentoIdentidad())))
                 .andExpect(jsonPath("$[0].primernombre", is(dto.getPrimerNombre())))
@@ -119,5 +130,17 @@ public class ControladorPersonaTest {
                 .andExpect(jsonPath("$[0].segundoapellido", is(dto.getSegundoApellido())))
                 .andExpect(jsonPath("$[0].fechanacimiento", is(dto.getFechaNacimiento())))
                 .andExpect(jsonPath("$[0].ingresomensual", is(dto.getIngresoMensual())));
+    }
+
+    private String obtenerToken() throws Exception {
+        DtoLogin login = new DtoLoginTestDataBuilder().build();
+        var resultLogin = mocMvc.perform(MockMvcRequestBuilders.post("/api/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(login))
+                )
+                .andExpect(status().isOk())
+                .andReturn();
+
+        return (String) objectMapper.readValue(resultLogin.getResponse().getContentAsString(), DtoRespuesta.class).getValor();
     }
 }*/

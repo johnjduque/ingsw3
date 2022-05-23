@@ -1,12 +1,8 @@
 package com.uco.myproject.infraestructura.adaptador.repositorio;
 
-import com.uco.myproject.dominio.modelo.AhorroPrevio;
 import com.uco.myproject.dominio.modelo.Formulario;
-import com.uco.myproject.dominio.modelo.Persona;
 import com.uco.myproject.dominio.puerto.RepositorioFormulario;
-import com.uco.myproject.infraestructura.adaptador.entidad.EntidadAhorroPrevio;
 import com.uco.myproject.infraestructura.adaptador.entidad.EntidadFormulario;
-import com.uco.myproject.infraestructura.adaptador.entidad.EntidadPersona;
 import com.uco.myproject.infraestructura.adaptador.repositorio.jpa.RepositorioAhorroPrevioJpa;
 import com.uco.myproject.infraestructura.adaptador.repositorio.jpa.RepositorioFormularioJpa;
 import org.springframework.stereotype.Repository;
@@ -35,8 +31,9 @@ public class RepositorioFormularioPostgresql implements RepositorioFormulario {
     }
 
     @Override
-    public void guardar(Formulario formulario) {
+    public Long guardar(Formulario formulario) {
         this.repositorioFormularioJpa.save(ensamblarEntidadFormulario(formulario));
+        return null;
     }
 
     @Override

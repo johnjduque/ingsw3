@@ -1,9 +1,7 @@
 package com.uco.myproject.aplicacion.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
 @NoArgsConstructor
 public class DtoAhorroPrevio {
 
@@ -11,6 +9,13 @@ public class DtoAhorroPrevio {
     private float cuentaAhorroProgramado;
     private float cesantias;
     private float subsidioCajaCompesacion;
+
+    public DtoAhorroPrevio(Long documentoIdentidadJefeHogar, float cuentaAhorroProgramado, float cesantias, float subsidioCajaCompesacion) {
+        this.documentoIdentidadJefeHogar = documentoIdentidadJefeHogar;
+        this.cuentaAhorroProgramado = cuentaAhorroProgramado;
+        this.cesantias = cesantias;
+        this.subsidioCajaCompesacion = subsidioCajaCompesacion;
+    }
 
     public float getCuentaAhorroProgramado() {
         return cuentaAhorroProgramado;

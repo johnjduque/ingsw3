@@ -1,10 +1,10 @@
-/*package com.uco.myproject.infraestructura.testdatabuilder;
+package com.uco.myproject.infraestructura.testdatabuilder;
 
 import com.uco.myproject.aplicacion.dto.DtoPersona;
 
 public class DtoPersonaTestDataBuilder {
 
-    private int documentoIdentidad;
+    private Long documentoIdentidad;
     private String primerNombre;
     private String segundoNombre;
     private String primerApellido;
@@ -13,7 +13,7 @@ public class DtoPersonaTestDataBuilder {
     private int ingresoMensual;
 
     public DtoPersonaTestDataBuilder() {
-        this.documentoIdentidad = 1234567890;
+        this.documentoIdentidad = 1234567890L;
         this.primerNombre = "juan";
         this.segundoNombre = "";
         this.primerApellido = "castaño";
@@ -22,7 +22,7 @@ public class DtoPersonaTestDataBuilder {
         this.ingresoMensual = 1000000;
     }
 
-    public DtoPersonaTestDataBuilder conDcumentoIdentidad(int documentoIdentidad) {
+    public DtoPersonaTestDataBuilder conDcumentoIdentidad(Long documentoIdentidad) {
         this.documentoIdentidad = documentoIdentidad;
         return this;
     }
@@ -56,4 +56,4 @@ public class DtoPersonaTestDataBuilder {
 
         return new DtoPersona(documentoIdentidad,primerNombre,segundoNombre,primerApellido,segundoApellido,fechaNacimiento,ingresoMensual);
     }
-}*/
+}

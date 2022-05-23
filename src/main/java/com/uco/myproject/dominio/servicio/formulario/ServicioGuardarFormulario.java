@@ -1,13 +1,15 @@
 package com.uco.myproject.dominio.servicio.formulario;
 
 import com.uco.myproject.dominio.modelo.Formulario;
+import com.uco.myproject.dominio.modelo.Persona;
 import com.uco.myproject.dominio.puerto.RepositorioFormulario;
+import com.uco.myproject.dominio.puerto.RepositorioPersona;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ServicioGuardarFormulario {
 
-    private static final String MENSAJE_YA_EXISTE = "Ya existe el formulario con ese radicado";
+    private static final String MENSAJE_YA_EXISTE = "Ya existe el formulario con los datos ingresados";
 
     private final RepositorioFormulario repositorioFormulario;
 
@@ -15,12 +17,12 @@ public class ServicioGuardarFormulario {
         this.repositorioFormulario = repositorioFormulario;
     }
 
-    public void ejecutar(Formulario formulario) {
+    public Long ejecutar(Formulario formulario) {
 
         if(formulario.getDocumentoIdentidadJefeHogar() != null && repositorioFormulario.existe(formulario)) {
             throw new IllegalStateException(MENSAJE_YA_EXISTE);
         }
 
-        repositorioFormulario.guardar(formulario);
+        return repositorioFormulario.guardar(formulario);
     }
 }

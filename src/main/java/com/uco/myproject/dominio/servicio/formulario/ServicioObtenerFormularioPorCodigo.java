@@ -9,6 +9,8 @@ public class ServicioObtenerFormularioPorCodigo {
 
     private static final String MENSAJE_NO_EXISTE = "El formulario no existe";
 
+    private static final String MENSAJE_EXISTE = "Consulta exitosa";
+
     private final RepositorioFormulario repositorioFormulario;
 
     public ServicioObtenerFormularioPorCodigo(RepositorioFormulario repositorioFormulario) {
@@ -17,7 +19,10 @@ public class ServicioObtenerFormularioPorCodigo {
 
     public Formulario obtenerPorCodigo(Long id){
         if (!this.repositorioFormulario.existe(this.repositorioFormulario.consultarPorId(id))){
-            throw new IllegalArgumentException(MENSAJE_NO_EXISTE);
+            throw new IllegalStateException(MENSAJE_NO_EXISTE);
+        }
+        if (this.repositorioFormulario.existe(this.repositorioFormulario.consultarPorId(id))){
+            throw new IllegalStateException(MENSAJE_EXISTE);
         }
         return this.repositorioFormulario.consultarPorId(id);
     }

@@ -8,6 +8,6 @@ public interface RepositorioFormulario {
 
     List<Formulario> listar();
     Formulario consultarPorId(Long id);
-    void guardar(Formulario formulario);
+    Long guardar(Formulario formulario);
     boolean existe(Formulario formulario);
 }
