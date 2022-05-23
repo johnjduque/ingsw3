@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ServicioGuardarAhorroPrevio {
 
-    private static final String MENSAJE_YA_EXISTE = "Ya existe el ahorro previo con ese documento";
+    private static final String MENSAJE_YA_EXISTE = "Ya existe el ahorro previo con los datos ingresados";
 
     private final RepositorioAhorroPrevio repositorioAhorroPrevio;
 
