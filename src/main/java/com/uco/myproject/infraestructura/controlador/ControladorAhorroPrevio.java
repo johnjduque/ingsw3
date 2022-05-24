@@ -6,6 +6,7 @@ import com.uco.myproject.aplicacion.servicio.ahorroprevio.ServicioAplicacionActu
 import com.uco.myproject.aplicacion.servicio.ahorroprevio.ServicioAplicacionGuardarAhorroPrevio;
 import com.uco.myproject.aplicacion.servicio.ahorroprevio.ServicioAplicacionListarAhorroPrevio;
 import com.uco.myproject.dominio.modelo.AhorroPrevio;
+import com.uco.myproject.infraestructura.aspecto.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,6 +36,7 @@ public class ControladorAhorroPrevio {
     }
 
     @PutMapping(value = "/{id}")
+    @Secured(roles = {"FUNCIONARIO_PUBLICO"})
     public DtoRespuesta<Boolean> actualizar(@PathVariable Long id, @RequestBody DtoAhorroPrevio dtoAhorroPrevio){
         return this.servicioActualizarAhorroPrevio.ejecutar(id,dtoAhorroPrevio);
     }

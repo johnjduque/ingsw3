@@ -7,6 +7,7 @@ import com.uco.myproject.aplicacion.servicio.persona.ServicioAplicacionEliminarP
 import com.uco.myproject.aplicacion.servicio.persona.ServicioAplicacionGuardarPersona;
 import com.uco.myproject.aplicacion.servicio.persona.ServicioAplicacionListarPersona;
 import com.uco.myproject.dominio.modelo.Persona;
+import com.uco.myproject.infraestructura.aspecto.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +29,7 @@ public class ControladorPersona {
     }
 
     @DeleteMapping(value = "/{documentoIdentidad}")
+    @Secured(roles = {"FUNCIONARIO_PUBLICO"})
     public DtoRespuesta<Boolean> eliminar(@PathVariable Long documentoIdentidad) {
         return this.servicioEliminarPersona.ejecutar(documentoIdentidad);
     }
@@ -43,6 +45,7 @@ public class ControladorPersona {
     }
 
     @PutMapping(value = "/{documentoIdentidad}")
+    @Secured(roles = {"FUNCIONARIO_PUBLICO"})
     public DtoRespuesta<Boolean> actualizar(@PathVariable Long documentoIdentidad,@RequestBody DtoPersona dtoPersona){
         return  this.servicioActualizarPersona.ejecutar(documentoIdentidad,dtoPersona);
     }

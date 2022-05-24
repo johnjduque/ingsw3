@@ -2,6 +2,8 @@ package com.uco.myproject.infraestructura.testdatabuilder;
 
 import com.uco.myproject.aplicacion.dto.DtoPersona;
 
+import java.time.LocalDate;
+
 public class DtoPersonaTestDataBuilder {
 
     private Long documentoIdentidad;
@@ -18,7 +20,7 @@ public class DtoPersonaTestDataBuilder {
         this.segundoNombre = "";
         this.primerApellido = "castaño";
         this.segundoApellido = "";
-        this.fechaNacimiento = String.valueOf(1900/04/02);
+        this.fechaNacimiento = "1990-02-04";
         this.ingresoMensual = 1000000;
     }
 
@@ -44,6 +46,11 @@ public class DtoPersonaTestDataBuilder {
 
     public DtoPersonaTestDataBuilder conSegundoApellido(String segundoApellido) {
         this.segundoApellido = segundoApellido;
+        return this;
+    }
+
+    public DtoPersonaTestDataBuilder conFechaNacimiento(String fechaNacimiento){
+        this.fechaNacimiento = fechaNacimiento;
         return this;
     }
 

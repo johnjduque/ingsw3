@@ -6,9 +6,11 @@ import com.uco.myproject.dominio.puerto.RepositorioUsuario;
 import com.uco.myproject.infraestructura.adaptador.entidad.EntidadRolUsuario;
 import com.uco.myproject.infraestructura.adaptador.entidad.EntidadUsuario;
 import com.uco.myproject.infraestructura.adaptador.repositorio.jpa.RepositorioUsuarioJpa;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class RepositorioUsuarioPostgresql implements RepositorioUsuario {
 
     private final RepositorioUsuarioJpa repositorioUsuarioJpa;
