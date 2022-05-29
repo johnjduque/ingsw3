@@ -3,6 +3,7 @@ package com.uco.myproject.dominio.testdatabuilder;
 import com.uco.myproject.dominio.modelo.Persona;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class PersonaTestDataBuilder {
 
@@ -20,8 +21,15 @@ public class PersonaTestDataBuilder {
         this.segundoNombre = "";
         this.primerApellido = "castaño";
         this.segundoApellido = "";
-        this.fechaNacimiento = LocalDate.of(1990,2,4);
+        this.fechaNacimiento = obtenerFecha("04-02-1990");
         this.ingresoMensual = 1000000;
+    }
+
+    private LocalDate obtenerFecha (String fecha){
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate fechaNacimiento = LocalDate.parse(fecha, format);
+
+        return fechaNacimiento;
     }
 
     public PersonaTestDataBuilder conDcumentoIdentidad(Long documentoIdentidad) {

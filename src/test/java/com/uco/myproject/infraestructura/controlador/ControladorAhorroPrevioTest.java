@@ -1,11 +1,13 @@
-/*package com.uco.myproject.infraestructura.controlador;
+package com.uco.myproject.infraestructura.controlador;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.uco.myproject.aplicacion.dto.DtoAhorroPrevio;
+import com.uco.myproject.aplicacion.dto.DtoLogin;
 import com.uco.myproject.aplicacion.dto.DtoRespuesta;
 import com.uco.myproject.dominio.puerto.RepositorioAhorroPrevio;
 import com.uco.myproject.infraestructura.ApplicationMock;
 import com.uco.myproject.infraestructura.testdatabuilder.DtoAhorroPrevioTestDataBuilder;
+import com.uco.myproject.infraestructura.testdatabuilder.DtoLoginTestDataBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -50,11 +52,14 @@ class ControladorAhorroPrevioTest {
         // arrange
         var dto = new DtoAhorroPrevioTestDataBuilder().build();
 
-        crear(dto);
+        String token = obtenerToken();
+
+        crear(dto, token);
 
         // act - assert
         mocMvc.perform(MockMvcRequestBuilders.post("/api/ahorrosprevios")
                         .contentType(MediaType.APPLICATION_JSON)
+                        .header("Authorization",token)
                         .content(objectMapper.writeValueAsString(dto))
                 )
                 .andExpect(status().isConflict());
@@ -67,16 +72,19 @@ class ControladorAhorroPrevioTest {
 
         var dto = new DtoAhorroPrevioTestDataBuilder().build();
 
-        crear(dto);
+        String token = obtenerToken();
+
+        crear(dto, token);
     }
 
-    private void crear(DtoAhorroPrevio dto) throws Exception {
+    private void crear(DtoAhorroPrevio dto, String token) throws Exception {
 
         // arrange
 
         // act
         var result = mocMvc.perform(MockMvcRequestBuilders.post("/api/ahorrosprevios")
                         .contentType(MediaType.APPLICATION_JSON)
+                        .header("Authorization",token)
                         .content(objectMapper.writeValueAsString(dto))
                 )
                 .andExpect(status().isOk())
@@ -96,21 +104,38 @@ class ControladorAhorroPrevioTest {
         Assertions.assertEquals(dto.getCuentaAhorroProgramado(), ahorroPrevio.getCuentaAhorroProgramado());
         Assertions.assertEquals(dto.getSubsidioCajaCompesacion(), ahorroPrevio.getSubsidioCajaCompesacion());
     }
-
+/*
     @Test
     @DisplayName("Debe listar los ahorros previos luego de crearlos")
     void listarTest() throws Exception {
 
         var dto = new DtoAhorroPrevioTestDataBuilder().build();
 
-        crear(dto);
+        String token = obtenerToken();
+
+        crear(dto, token);
 
         mocMvc.perform(get("/api/ahorrosprevios")
-                        .contentType(MediaType.APPLICATION_JSON))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .header("Authorization",token))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].documentoidentidadjefehogar", is(dto.getDocumentoIdentidadJefeHogar())))
+                .andExpect(jsonPath("$[0].documentoIdentidadJefeHogar", is(dto.getDocumentoIdentidadJefeHogar().intValue())))
+                .andExpect(jsonPath("$[0].cuentaAhorroProgramado", is(dto.getCuentaAhorroProgramado())))
                 .andExpect(jsonPath("$[0].cesantias", is(dto.getCesantias())))
-                .andExpect(jsonPath("$[0].ahorroprogramado", is(dto.getCuentaAhorroProgramado())))
-                .andExpect(jsonPath("$[0].subsidiocajacompesacion", is(dto.getSubsidioCajaCompesacion())));
+                .andExpect(jsonPath("$[0].subsidioCajaCompesacion", is(dto.getSubsidioCajaCompesacion())));
     }
-}*/
+
+ */
+
+    private String obtenerToken() throws Exception {
+        DtoLogin login = new DtoLoginTestDataBuilder().build();
+        var resultLogin = mocMvc.perform(MockMvcRequestBuilders.post("/api/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(login))
+                )
+                .andExpect(status().isOk())
+                .andReturn();
+
+        return (String) objectMapper.readValue(resultLogin.getResponse().getContentAsString(), DtoRespuesta.class).getValor();
+    }
+}

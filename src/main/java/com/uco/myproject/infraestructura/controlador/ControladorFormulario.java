@@ -1,6 +1,7 @@
 package com.uco.myproject.infraestructura.controlador;
 
 import com.uco.myproject.aplicacion.dto.DtoFormulario;
+import com.uco.myproject.aplicacion.dto.DtoRespuesta;
 import com.uco.myproject.aplicacion.servicio.formulario.ServicioAplicacionGuardarFormulario;
 import com.uco.myproject.aplicacion.servicio.formulario.ServicioAplicacionListarFormularios;
 import com.uco.myproject.aplicacion.servicio.formulario.ServicioAplicacionObtenerFormularioPorCodigo;
@@ -37,12 +38,8 @@ public class ControladorFormulario {
     }
 
     @PostMapping
-    public ResponseEntity<DtoFormulario> guardar(@RequestBody DtoFormulario dtoFormulario){
+    public DtoRespuesta<Long> guardar(@RequestBody DtoFormulario dtoFormulario){
 
-        ResponseEntity<DtoFormulario> responseEntity;
-        servicioGuardarFormulario.guardar(dtoFormulario);
-        responseEntity = new ResponseEntity<>(HttpStatus.ACCEPTED);
-
-        return responseEntity;
+        return this.servicioGuardarFormulario.guardar(dtoFormulario);
     }
 }

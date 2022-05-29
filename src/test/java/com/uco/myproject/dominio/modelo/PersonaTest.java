@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 class PersonaTest {
 
@@ -18,7 +19,7 @@ class PersonaTest {
         String segundoNombre = "";
         String primerApellido = "castaño";
         String segundoApellido = "";
-        LocalDate fechaNacimiento = LocalDate.of(1990,2,4);
+        LocalDate fechaNacimiento = obtenerFecha("04-02-1990");
         int ingresoMensual = 1000000;
 
         //act (ejecuta el metodo a probar)
@@ -31,7 +32,7 @@ class PersonaTest {
         Assertions.assertEquals("",persona.getSegundoNombre());
         Assertions.assertEquals("castaño",persona.getPrimerApellido());
         Assertions.assertEquals("",persona.getSegundoApellido());
-        Assertions.assertEquals(LocalDate.of(1990,2,4),persona.getFechaNacimiento());
+        Assertions.assertEquals(obtenerFecha("04-02-1990"),persona.getFechaNacimiento());
         Assertions.assertEquals(1000000,persona.getIngresoMensual());
     }
 
@@ -45,7 +46,7 @@ class PersonaTest {
         String segundoNombre = "";
         String primerApellido = "castaño";
         String segundoApellido = "";
-        LocalDate fechaNacimiento = LocalDate.of(1990,2,4);;
+        LocalDate fechaNacimiento = obtenerFecha("04-02-1990");
         int ingresoMensual = 1000000;
 
         //act - assert (ejecuta el metodo a probar)
@@ -65,7 +66,7 @@ class PersonaTest {
         String segundoNombre = "";
         String primerApellido = "castaño";
         String segundoApellido = "";
-        LocalDate fechaNacimiento = LocalDate.of(1990,2,4);
+        LocalDate fechaNacimiento = obtenerFecha("04-02-1990");
         int ingresoMensual = 1000000;
 
         //act - assert (ejecuta el metodo a probar)
@@ -85,7 +86,7 @@ class PersonaTest {
         String segundoNombre = "";
         String primerApellido = "castaño";
         String segundoApellido = "";
-        LocalDate fechaNacimiento = LocalDate.of(1990,2,4);
+        LocalDate fechaNacimiento = obtenerFecha("04-02-1990");
         int ingresoMensual = -500000;
 
         //act - assert (ejecuta el metodo a probar)
@@ -93,5 +94,12 @@ class PersonaTest {
         Assertions.assertEquals("El ingreso mensual no puede ser vacio o menor a cero, sino posee ingreso coloque 0",Assertions.assertThrows(IllegalArgumentException.class, () ->
                 Persona.of(documentoIdentidad,primerNombre,segundoNombre,primerApellido,segundoApellido,fechaNacimiento,ingresoMensual)
         ).getMessage());
+    }
+
+    private LocalDate obtenerFecha (String fecha){
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate fechaNacimiento = LocalDate.parse(fecha, format);
+
+        return fechaNacimiento;
     }
 }

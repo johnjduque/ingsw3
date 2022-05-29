@@ -2,8 +2,6 @@ package com.uco.myproject.infraestructura.testdatabuilder;
 
 import com.uco.myproject.aplicacion.dto.DtoPersona;
 
-import java.time.LocalDate;
-
 public class DtoPersonaTestDataBuilder {
 
     private Long documentoIdentidad;

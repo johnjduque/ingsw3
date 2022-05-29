@@ -1,13 +1,14 @@
+/*
 package com.uco.myproject.infraestructura.controlador;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.uco.myproject.aplicacion.dto.DtoFormulario;
 import com.uco.myproject.aplicacion.dto.DtoLogin;
-import com.uco.myproject.aplicacion.dto.DtoPersona;
 import com.uco.myproject.aplicacion.dto.DtoRespuesta;
-import com.uco.myproject.dominio.puerto.RepositorioPersona;
+import com.uco.myproject.dominio.puerto.RepositorioFormulario;
 import com.uco.myproject.infraestructura.ApplicationMock;
+import com.uco.myproject.infraestructura.testdatabuilder.DtoFormularioTestDataBuilder;
 import com.uco.myproject.infraestructura.testdatabuilder.DtoLoginTestDataBuilder;
-import com.uco.myproject.infraestructura.testdatabuilder.DtoPersonaTestDataBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,9 +24,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 import static org.hamcrest.core.Is.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -37,8 +35,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ContextConfiguration(classes = ApplicationMock.class)
 @ActiveProfiles("test")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-public class ControladorPersonaTest {
-
+class ControladorFormularioTest {
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -47,21 +44,21 @@ public class ControladorPersonaTest {
     private MockMvc mocMvc;
 
     @Autowired
-    RepositorioPersona repositorioPersona;
+    RepositorioFormulario repositorioFormulario;
 
     @Test
-    @DisplayName("Debe crear una persona de forma exitosa y luego fallar al crear la misma")
+    @DisplayName("Debe crear un formulario de forma exitosa y luego fallar al crear el mismo")
     void crearDuplicadaTest() throws Exception {
 
         // arrange
-        var dto = new DtoPersonaTestDataBuilder().build();
+        var dto = new DtoFormularioTestDataBuilder().build();
 
         String token = obtenerToken();
 
         crear(dto, token);
 
         // act - assert
-        mocMvc.perform(MockMvcRequestBuilders.post("/api/personas")
+        mocMvc.perform(MockMvcRequestBuilders.post("/api/formularios")
                         .contentType(MediaType.APPLICATION_JSON)
                         .header("Authorization",token)
                         .content(objectMapper.writeValueAsString(dto))
@@ -71,22 +68,22 @@ public class ControladorPersonaTest {
 
 
     @Test
-    @DisplayName("Debe crear una persona de forma exitosa y validar que si quedó guardada")
+    @DisplayName("Debe crear un formulario de forma exitosa y validar que si quedó guardada")
     void crearTest() throws Exception {
 
-        var dto = new DtoPersonaTestDataBuilder().build();
+        var dto = new DtoFormularioTestDataBuilder().build();
 
         String token = obtenerToken();
 
         crear(dto, token);
     }
 
-    private void crear(DtoPersona dto, String token) throws Exception {
+    private void crear(DtoFormulario dto, String token) throws Exception {
 
         // arrange
 
         // act
-        var result = mocMvc.perform(MockMvcRequestBuilders.post("/api/personas")
+        var result = mocMvc.perform(MockMvcRequestBuilders.post("/api/formularios")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(dto))
                         .header("Authorization",token)
@@ -101,41 +98,36 @@ public class ControladorPersonaTest {
         Long id = respuesta.getValor().longValue();
         Assertions.assertNotNull(id);
 
-        var persona = repositorioPersona.consultarPorId(id);
+        var formulario = repositorioFormulario.consultarPorId(id);
 
-        Assertions.assertEquals(dto.getDocumentoIdentidad(), persona.getDocumentoIdentidad());
-        Assertions.assertEquals(dto.getPrimerNombre(), persona.getPrimerNombre());
-        Assertions.assertEquals(dto.getSegundoNombre(), persona.getSegundoNombre());
-        Assertions.assertEquals(dto.getPrimerApellido(), persona.getPrimerApellido());
-        Assertions.assertEquals(dto.getSegundoApellido(), persona.getSegundoApellido());
-
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate fechaNacimiento = LocalDate.parse(dto.getFechaNacimiento(), format);
-        Assertions.assertEquals(fechaNacimiento, persona.getFechaNacimiento());
-        Assertions.assertEquals(dto.getIngresoMensual(), persona.getIngresoMensual());
+        Assertions.assertEquals(dto.getDocumentoIdentidadJefeHogar(), formulario.getDocumentoIdentidadJefeHogar());
+        Assertions.assertEquals(dto.getClasificacionSisben(), formulario.getClasificacionSisben());
+        Assertions.assertEquals(dto.isPoseeDerechosDePropiedad(), formulario.isPoseeDerechosDePropiedad());
+        Assertions.assertEquals(dto.isAceptoAvisoDePrivacidad(), formulario.isAceptoAvisoDePrivacidad());
+        Assertions.assertEquals(dto.isAceptoJuramento(), formulario.isAceptoJuramento());
+        Assertions.assertEquals(dto.getCorreoElectronico(), formulario.getCorreoElectronico());
     }
 
     @Test
-    @DisplayName("Debe listar las personas luego de crearlas")
+    @DisplayName("Debe listar los formularios luego de crearlos")
     void listarTest() throws Exception {
 
-        var dto = new DtoPersonaTestDataBuilder().build();
+        var dto = new DtoFormularioTestDataBuilder().build();
 
         String token = obtenerToken();
 
         crear(dto, token);
 
-        mocMvc.perform(get("/api/personas")
+        mocMvc.perform(get("/api/formularios")
                         .contentType(MediaType.APPLICATION_JSON)
                         .header("Authorization",token))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].documentoIdentidad", is(dto.getDocumentoIdentidad().intValue())))
-                .andExpect(jsonPath("$[0].primerNombre", is(dto.getPrimerNombre())))
-                .andExpect(jsonPath("$[0].segundoNombre", is(dto.getSegundoNombre())))
-                .andExpect(jsonPath("$[0].primerApellido", is(dto.getPrimerApellido())))
-                .andExpect(jsonPath("$[0].segundoApellido", is(dto.getSegundoApellido())))
-                .andExpect(jsonPath("$[0].fechaNacimiento", is(dto.getFechaNacimiento())))
-                .andExpect(jsonPath("$[0].ingresoMensual", is(dto.getIngresoMensual())));
+                .andExpect(jsonPath("$[0].documentoIdentidadJefeHogar", is(dto.getDocumentoIdentidadJefeHogar().intValue())))
+                .andExpect(jsonPath("$[0].clasificacionSisben", is(dto.getClasificacionSisben())))
+                .andExpect(jsonPath("$[0].poseeDerechosDePropiedad", is(dto.isPoseeDerechosDePropiedad())))
+                .andExpect(jsonPath("$[0].aceptoJuramento", is(dto.isAceptoJuramento())))
+                .andExpect(jsonPath("$[0].aceptoAvisoDePrivacidad", is(dto.isAceptoAvisoDePrivacidad())))
+                .andExpect(jsonPath("$[0].correoElectronico", is(dto.getCorreoElectronico())));
     }
 
     private String obtenerToken() throws Exception {
@@ -150,3 +142,4 @@ public class ControladorPersonaTest {
         return (String) objectMapper.readValue(resultLogin.getResponse().getContentAsString(), DtoRespuesta.class).getValor();
     }
 }
+*/

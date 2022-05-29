@@ -1,8 +1,6 @@
 package com.uco.myproject.infraestructura.testdatabuilder;
 
 import com.uco.myproject.aplicacion.dto.DtoFormulario;
-import com.uco.myproject.dominio.modelo.Formulario;
-import com.uco.myproject.dominio.testdatabuilder.FormularioTestDataBuilder;
 
 public class DtoFormularioTestDataBuilder {
 
