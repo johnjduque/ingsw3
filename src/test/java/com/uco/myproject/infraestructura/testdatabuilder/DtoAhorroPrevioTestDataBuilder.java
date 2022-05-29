@@ -11,8 +11,8 @@ public class DtoAhorroPrevioTestDataBuilder {
 
     public DtoAhorroPrevioTestDataBuilder() {
         this.documentoIdentidadJefeHogar = 1234567890L;
-        this.cuentaAhorroProgramado = 10.0F;
-        this.cesantias = 15.0F;
+        this.cuentaAhorroProgramado = 10;
+        this.cesantias = 15;
         this.subsidioCajaCompesacion = 25.0F;
     }
 

@@ -104,7 +104,7 @@ class ControladorAhorroPrevioTest {
         Assertions.assertEquals(dto.getCuentaAhorroProgramado(), ahorroPrevio.getCuentaAhorroProgramado());
         Assertions.assertEquals(dto.getSubsidioCajaCompesacion(), ahorroPrevio.getSubsidioCajaCompesacion());
     }
-/*
+
     @Test
     @DisplayName("Debe listar los ahorros previos luego de crearlos")
     void listarTest() throws Exception {
@@ -120,12 +120,11 @@ class ControladorAhorroPrevioTest {
                         .header("Authorization",token))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].documentoIdentidadJefeHogar", is(dto.getDocumentoIdentidadJefeHogar().intValue())))
-                .andExpect(jsonPath("$[0].cuentaAhorroProgramado", is(dto.getCuentaAhorroProgramado())))
-                .andExpect(jsonPath("$[0].cesantias", is(dto.getCesantias())))
-                .andExpect(jsonPath("$[0].subsidioCajaCompesacion", is(dto.getSubsidioCajaCompesacion())));
+                .andExpect(jsonPath("$[0].cuentaAhorroProgramado", is(convertirADouble(dto.getCuentaAhorroProgramado()))))
+                .andExpect(jsonPath("$[0].cesantias", is(convertirADouble(dto.getCesantias()))))
+                .andExpect(jsonPath("$[0].subsidioCajaCompesacion", is(convertirADouble(dto.getSubsidioCajaCompesacion()))));
     }
 
- */
 
     private String obtenerToken() throws Exception {
         DtoLogin login = new DtoLoginTestDataBuilder().build();
@@ -137,5 +136,9 @@ class ControladorAhorroPrevioTest {
                 .andReturn();
 
         return (String) objectMapper.readValue(resultLogin.getResponse().getContentAsString(), DtoRespuesta.class).getValor();
+    }
+
+    private Double convertirADouble(float valorAConvertir){
+        return Double.parseDouble(String.valueOf(valorAConvertir));
     }
 }

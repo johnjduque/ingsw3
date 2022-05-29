@@ -20,8 +20,9 @@ public class RepositorioAhorroPrevioPostgresql implements RepositorioAhorroPrevi
     @Override
     public List<AhorroPrevio> listar() {
         List<EntidadAhorroPrevio> entidadesAhorroPrevio = repositorioAhorroPrevioJpa.findAll();
-        return entidadesAhorroPrevio.stream().map(ahorroPrevio -> new AhorroPrevio(ahorroPrevio.getDocumentoIdentidadJefeHogar(),ahorroPrevio.getCuentaAhorroProgramado(),
+        List<AhorroPrevio> ahorroPrevioPre = entidadesAhorroPrevio.stream().map(ahorroPrevio -> new AhorroPrevio(ahorroPrevio.getDocumentoIdentidadJefeHogar(),ahorroPrevio.getCuentaAhorroProgramado(),
                 ahorroPrevio.getCesantias(),ahorroPrevio.getSubsidioCajaCompesacion())).toList();
+        return ahorroPrevioPre;
     }
 
     @Override

@@ -1,4 +1,4 @@
-/*
+
 package com.uco.myproject.infraestructura.controlador;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -142,4 +142,3 @@ class ControladorFormularioTest {
         return (String) objectMapper.readValue(resultLogin.getResponse().getContentAsString(), DtoRespuesta.class).getValor();
     }
 }
-*/

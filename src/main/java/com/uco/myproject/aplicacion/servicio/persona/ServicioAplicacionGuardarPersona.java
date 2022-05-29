@@ -19,12 +19,10 @@ public class ServicioAplicacionGuardarPersona {
     }
 
     public DtoRespuesta<Long> ejecutar(DtoPersona dto) {
-
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate fechaNacimiento = LocalDate.parse(dto.getFechaNacimiento(), format);
-
         Persona persona = Persona.of(dto.getDocumentoIdentidad(),dto.getPrimerNombre(),dto.getSegundoNombre(),dto.getPrimerApellido(),
-                dto.getSegundoApellido(),fechaNacimiento,dto.getIngresoMensual());
+                    dto.getSegundoApellido(),fechaNacimiento,dto.getIngresoMensual());
 
         return new DtoRespuesta<Long>((long) servicioGuardarPersona.ejecutar(persona));
     }

@@ -32,8 +32,8 @@ public class RepositorioFormularioPostgresql implements RepositorioFormulario {
 
     @Override
     public Long guardar(Formulario formulario) {
-        this.repositorioFormularioJpa.save(ensamblarEntidadFormulario(formulario));
-        return null;
+        EntidadFormulario formularioGuardado = this.repositorioFormularioJpa.save(ensamblarEntidadFormulario(formulario));
+        return formularioGuardado.getDocumentoIdentidadJefeHogar();
     }
 
     @Override
