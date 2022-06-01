@@ -6,6 +6,7 @@ import com.uco.myproject.aplicacion.servicio.formulario.ServicioAplicacionGuarda
 import com.uco.myproject.aplicacion.servicio.formulario.ServicioAplicacionListarFormularios;
 import com.uco.myproject.aplicacion.servicio.formulario.ServicioAplicacionObtenerFormularioPorCodigo;
 import com.uco.myproject.dominio.modelo.Formulario;
+import com.uco.myproject.infraestructura.aspecto.Secured;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,12 +28,14 @@ public class ControladorFormulario {
     }
 
     @GetMapping
+    @Secured(roles = {"FUNCIONARIO_PUBLICO"})
     public List<Formulario> listar() {
 
         return this.servicioListarFormulario.ejecutar();
     }
 
     @GetMapping("{id}")
+    @Secured(roles = {"FUNCIONARIO_PUBLICO"})
     public ResponseEntity<Formulario> listarPorCodigo(@PathVariable("id") Long id){
         return ResponseEntity.ok(servicioObtenerFormularioPorCodigo.obtenerPorCodigo(id));
     }

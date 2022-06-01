@@ -40,6 +40,7 @@ public class ControladorPersona {
     }
 
     @GetMapping
+    @Secured(roles = {"FUNCIONARIO_PUBLICO"})
     public List<Persona> listar(){
         return this.servicioListarPersona.ejecutar();
     }

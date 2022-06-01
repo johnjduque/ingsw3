@@ -19,7 +19,7 @@ public class ServicioAplicacionActualizarPersona {
     }
 
     public DtoRespuesta<Boolean> ejecutar(Long documentoIdentidad, DtoPersona dtoPersona){
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate fechaNacimiento = LocalDate.parse(dtoPersona.getFechaNacimiento(), format);
 
         Persona persona = Persona.of(dtoPersona.getDocumentoIdentidad(),dtoPersona.getPrimerNombre(),

@@ -31,6 +31,7 @@ public class ControladorAhorroPrevio {
     }
 
     @GetMapping
+    @Secured(roles = {"FUNCIONARIO_PUBLICO"})
     public List<AhorroPrevio> listar(){
         return servicioListarAhorroPrevio.ejecutar();
     }
