@@ -28,7 +28,6 @@ public class ControladorFormulario {
     }
 
     @GetMapping
-    @Secured(roles = {"FUNCIONARIO_PUBLICO"})
     public List<Formulario> listar() {
 
         return this.servicioListarFormulario.ejecutar();
