@@ -1,8 +1,9 @@
 package com.uco.myproject.dominio.modelo;
 
-import com.uco.myproject.dominio.validarobligatorio.*;
-
-import java.util.List;
+import com.uco.myproject.dominio.validarobligatorio.ValidarCumpleONoCumple;
+import com.uco.myproject.dominio.validarobligatorio.ValidarEmail;
+import com.uco.myproject.dominio.validarobligatorio.ValidarNumero;
+import com.uco.myproject.dominio.validarobligatorio.ValidarTexto;
 
 public class Formulario {
 

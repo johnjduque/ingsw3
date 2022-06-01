@@ -3,7 +3,6 @@ package com.uco.myproject.dominio.validarobligatorio;
 public class ValidarCumpleONoCumple {
 
     public ValidarCumpleONoCumple() {
-        // TODO document why this constructor is empty
     }
 
     public static void validarObligatorioPoseeDerechosDePropiedad(boolean condicion, String mensaje) {

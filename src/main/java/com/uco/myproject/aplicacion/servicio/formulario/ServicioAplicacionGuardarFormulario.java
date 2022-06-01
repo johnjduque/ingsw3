@@ -17,7 +17,7 @@ public class ServicioAplicacionGuardarFormulario {
 
     public DtoRespuesta<Long> guardar(DtoFormulario formulario){
 
-        return new DtoRespuesta<Long>((Long) servicioGuardarFormulario.ejecutar(ensamblarFormulario(formulario)));
+        return new DtoRespuesta<>((Long) servicioGuardarFormulario.ejecutar(ensamblarFormulario(formulario)));
     }
 
     private Formulario ensamblarFormulario(DtoFormulario formulario){

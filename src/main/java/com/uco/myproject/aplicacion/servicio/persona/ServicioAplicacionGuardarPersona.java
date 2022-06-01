@@ -24,6 +24,6 @@ public class ServicioAplicacionGuardarPersona {
         Persona persona = Persona.of(dto.getDocumentoIdentidad(),dto.getPrimerNombre(),dto.getSegundoNombre(),dto.getPrimerApellido(),
                     dto.getSegundoApellido(),fechaNacimiento,dto.getIngresoMensual());
 
-        return new DtoRespuesta<Long>((long) servicioGuardarPersona.ejecutar(persona));
+        return new DtoRespuesta<>((long) servicioGuardarPersona.ejecutar(persona));
     }
 }

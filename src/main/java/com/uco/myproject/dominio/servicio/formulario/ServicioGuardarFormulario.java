@@ -1,9 +1,7 @@
 package com.uco.myproject.dominio.servicio.formulario;
 
 import com.uco.myproject.dominio.modelo.Formulario;
-import com.uco.myproject.dominio.modelo.Persona;
 import com.uco.myproject.dominio.puerto.RepositorioFormulario;
-import com.uco.myproject.dominio.puerto.RepositorioPersona;
 import org.springframework.stereotype.Service;
 
 @Service

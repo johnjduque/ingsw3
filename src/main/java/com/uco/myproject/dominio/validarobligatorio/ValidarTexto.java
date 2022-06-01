@@ -3,7 +3,6 @@ package com.uco.myproject.dominio.validarobligatorio;
 public class ValidarTexto {
 
     public ValidarTexto() {
-        // TODO document why this constructor is empty
     }
 
     public static void validarObligatorioTexto(String texto, String mensaje) {

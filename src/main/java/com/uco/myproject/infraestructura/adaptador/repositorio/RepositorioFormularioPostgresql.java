@@ -3,7 +3,6 @@ package com.uco.myproject.infraestructura.adaptador.repositorio;
 import com.uco.myproject.dominio.modelo.Formulario;
 import com.uco.myproject.dominio.puerto.RepositorioFormulario;
 import com.uco.myproject.infraestructura.adaptador.entidad.EntidadFormulario;
-import com.uco.myproject.infraestructura.adaptador.repositorio.jpa.RepositorioAhorroPrevioJpa;
 import com.uco.myproject.infraestructura.adaptador.repositorio.jpa.RepositorioFormularioJpa;
 import org.springframework.stereotype.Repository;
 
@@ -13,11 +12,10 @@ import java.util.List;
 public class RepositorioFormularioPostgresql implements RepositorioFormulario {
 
     private final RepositorioFormularioJpa repositorioFormularioJpa;
-    private final RepositorioAhorroPrevioJpa repositorioAhorroPrevioJpa;
 
-    public RepositorioFormularioPostgresql(RepositorioFormularioJpa repositorioFormularioJpa, RepositorioAhorroPrevioJpa repositorioAhorroPrevioJpa) {
+
+    public RepositorioFormularioPostgresql(RepositorioFormularioJpa repositorioFormularioJpa) {
         this.repositorioFormularioJpa = repositorioFormularioJpa;
-        this.repositorioAhorroPrevioJpa = repositorioAhorroPrevioJpa;
     }
 
     @Override
